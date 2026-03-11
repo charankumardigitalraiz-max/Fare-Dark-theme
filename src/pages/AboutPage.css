@@ -1,0 +1,141 @@
+.about-page {
+    padding-top: 80px;
+    background: var(--bg-deep);
+}
+
+.about-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.about-stat-card {
+    padding: 24px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 184, 0, 0.1);
+}
+
+.about-stat-value {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 8px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.about-stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.value-card {
+    padding: 32px;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 255, 204, 0.1);
+}
+
+.value-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    background: var(--gold-glow);
+    color: var(--gold-accent);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.value-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.value-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.value-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.edge-highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 40px;
+}
+
+.highlight-item {
+    padding: 40px;
+}
+
+.highlight-icon {
+    color: var(--primary-accent);
+    margin-bottom: 24px;
+}
+
+.highlight-item h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 16px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.highlight-item p {
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.gold-text {
+    color: var(--gold-accent);
+}
+
+@media (max-width: 1024px) {
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .edge-highlight-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-stat-value {
+        font-size: 2.5rem;
+    }
+    
+    .value-title {
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700;900&display=swap');
+
+:root {
+  /* Global Modernization - Dark & Neon */
+  --bg-deep: #030305; /* Dark Space */
+  --bg-card: rgba(15, 23, 42, 0.5); /* Glass Background */
+  --primary-accent: #00ffcc; /* Cyber Glow Green/Cyan */
+  --gold-accent: #ffb800; /* Rich Gold */
+  --primary-deep: #005f73;
+  --primary-gradient: linear-gradient(135deg, #00ffcc 0%, #00bfa5 100%);
+  --gold-gradient: linear-gradient(135deg, #ffb800 0%, #ff8c00 100%);
+  --text-main: #ffffff; /* White */
+  --text-muted: #8892b0; /* Slate Grey */
+  --accent-glow: rgba(0, 255, 204, 0.15); /* Neon Glow */
+  --gold-glow: rgba(255, 184, 0, 0.3);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(0, 255, 204, 0.1);
+  --border-radius: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1, h2, h3, .luxury-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-style: normal;
+}
+
+.institutional-title {
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Glassmorphism & UI Utilities */
+.glass-effect {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+.primary-text {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.btn-premium {
+  padding: 12px 32px;
+  background: var(--primary-gradient);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(30, 41, 59, 0.15);
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 255, 204, 0.3);
+  filter: brightness(1.1);
+}
+
+.btn-gold {
+  padding: 14px 36px;
+  background: var(--gold-gradient);
+  color: var(--bg-deep);
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 10px 30px var(--gold-glow);
+}
+
+.btn-gold:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(255, 184, 0, 0.4);
+  filter: brightness(1.1);
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-padding {
+  padding: 70px 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 40px 0;
+  }
+}
+
+
+/* Global Navigation/UI Utilities */
+.modern-badge {
+  display: inline-block;
+  background: rgba(0, 255, 204, 0.08);
+  color: var(--primary-accent);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid rgba(0, 255, 204, 0.2);
+  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
+}
+
+/* Global Utility Classes */
+.text-center {
+  text-align: center !important;
+}
+
+.gold-text {
+  color: var(--gold-accent);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+
+.luxury-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
