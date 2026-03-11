@@ -28,46 +28,64 @@ const AboutPage = () => {
         <div className="about-page">
             <section className="about-hero section-padding">
                 <div className="container">
-                    <motion.span 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="modern-badge mb-6"
-                    >
-                        Our Story
-                    </motion.span>
-                    <motion.h1 
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="luxury-title text-6xl mb-8"
-                    >
-                        Pioneering <span className="primary-text">Elite</span> <br />
-                        Real Estate Education
-                    </motion.h1>
-                    <motion.p 
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="text-text-muted max-w-3xl text-lg mb-12"
-                    >
-                        Fare Reality isn't just an academy; it's a launchpad for the next generation of property moguls. 
-                        We combine aggressive sales psychology with deep technical compliance to create unstoppable professionals.
-                    </motion.p>
-
-                    <div className="about-stats-grid">
-                        {stats.map((stat, index) => (
-                            <motion.div 
-                                key={stat.label}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="about-stat-card glass-effect"
+                    <div className="about-hero-grid">
+                        <div className="about-hero-content">
+                            <motion.span 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="modern-badge mb-6"
                             >
-                                <span className="about-stat-value">{stat.value}</span>
-                                <span className="about-stat-label">{stat.label}</span>
-                            </motion.div>
-                        ))}
+                                Our Story
+                            </motion.span>
+                            <motion.h1 
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                className="luxury-title text-5xl lg:text-6xl mb-8"
+                            >
+                                Pioneering <span className="primary-text">Elite</span> <br />
+                                Real Estate Education
+                            </motion.h1>
+                            <motion.p 
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.4 }}
+                                className="text-text-muted max-w-xl text-lg mb-12"
+                            >
+                                Fare Reality isn't just an academy; it's a launchpad for the next generation of property moguls. 
+                                We combine aggressive sales psychology with deep technical compliance to create unstoppable professionals.
+                            </motion.p>
+                            
+                            <div className="about-stats-grid">
+                                {stats.map((stat, index) => (
+                                    <motion.div 
+                                        key={stat.label}
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: index * 0.1 }}
+                                        className="about-stat-card glass-effect"
+                                    >
+                                        <span className="about-stat-value">{stat.value}</span>
+                                        <span className="about-stat-label">{stat.label}</span>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <motion.div 
+                            className="about-hero-image-wrapper"
+                            initial={{ opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.3, duration: 0.6 }}
+                        >
+                            <div className="about-hero-glow"></div>
+                            <img 
+                                src="/training-session-new.png" 
+                                alt="Fare Reality Training Session" 
+                                className="about-hero-img"
+                            />
+                        </motion.div>
                     </div>
                 </div>
             </section>

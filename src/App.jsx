@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -8,12 +9,14 @@ import CoursesPage from './pages/CoursesPage';
 import GalleryPage from './pages/GalleryPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
+import CourseDetailPage from './pages/CourseDetailPage';
 import Footer from './components/Footer';
 import './App.css';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen">
         <Header />
         <main>
@@ -25,6 +28,7 @@ function App() {
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
+            <Route path="/course/:id" element={<CourseDetailPage />} />
           </Routes>
         </main>
         <Footer />

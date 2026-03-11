@@ -65,8 +65,8 @@ const PrivacyPolicy = () => {
                         <h2 className="section-title">Data Protection</h2>
                         <p className="legal-text">
                             We implement industry-standard security measures to maintain the safety of your personal
-                            information. Your data is stored on secure servers and access is limited to authorized
-                            personnel only.
+                            information. Your data is strictly guarded and only used by authorized
+                            personnel.
                         </p>
                     </section>
 

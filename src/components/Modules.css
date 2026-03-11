@@ -137,9 +137,16 @@
   font-weight: 700;
   line-height: 1.25;
   color: var(--text-main);
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   font-family: 'Outfit', sans-serif;
   letter-spacing: -0.5px;
+}
+
+.module-tagline {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
 }
 
 .module-action {

@@ -6,11 +6,57 @@
 .about-hero {
     position: relative;
     overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.about-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-hero-content {
+    max-width: 650px;
+}
+
+.about-hero-image-wrapper {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 255, 204, 0.1);
+}
+
+.about-hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(0, 255, 204, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.about-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.7s ease;
+}
+
+.about-hero-image-wrapper:hover .about-hero-img {
+    transform: scale(1.05);
 }
 
 .about-stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
     margin-top: 40px;
 }
@@ -120,6 +166,11 @@
 }
 
 @media (max-width: 1024px) {
+    .about-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
     .values-grid {
         grid-template-columns: 1fr;
     }

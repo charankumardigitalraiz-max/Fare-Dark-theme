@@ -213,6 +213,188 @@
 .cta-action-row {
   position: relative;
   z-index: 1;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-brochure {
+  padding: 14px 36px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-muted);
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.btn-brochure:hover {
+  border-color: rgba(255, 184, 0, 0.4);
+  color: var(--gold-accent);
+  background: rgba(255, 184, 0, 0.05);
+}
+
+/* All Courses Grid */
+.course-all-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.course-list-card {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(0, 255, 204, 0.06);
+  border-radius: 24px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.course-list-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 255, 204, 0.2);
+  box-shadow: 0 30px 60px rgba(0, 255, 204, 0.08);
+  background: rgba(15, 23, 42, 0.6);
+}
+
+.clc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.clc-icon-wrap {
+  width: 52px;
+  height: 52px;
+  background: rgba(0, 255, 204, 0.08);
+  border: 1px solid rgba(0, 255, 204, 0.12);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-accent);
+  transition: all 0.4s ease;
+}
+
+.course-list-card:hover .clc-icon-wrap {
+  background: var(--gold-accent);
+  color: var(--bg-deep);
+  border-color: transparent;
+}
+
+.clc-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.clc-module-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.clc-level-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--primary-accent);
+  background: rgba(0, 255, 204, 0.08);
+  border: 1px solid rgba(0, 255, 204, 0.15);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.clc-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+}
+
+.clc-tagline {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.clc-info-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.clc-info-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.clc-info-item svg {
+  color: var(--primary-accent);
+}
+
+.clc-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.clc-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.clc-highlight-item svg {
+  color: var(--primary-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.clc-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary-accent);
+  text-decoration: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.clc-cta:hover {
+  color: var(--gold-accent);
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .course-all-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {

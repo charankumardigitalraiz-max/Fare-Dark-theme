@@ -47,8 +47,8 @@ const TermsConditions = () => {
                         <div className="section-number">02</div>
                         <h2 className="section-title">Financial Obligation</h2>
                         <p className="legal-text">
-                            All program fees are clearly stated during the checkout process. Tuition is non-refundable
-                            once access to the premium training materials and high-performance network is granted,
+                            All program fees are clearly stated during the enrollment process. Tuition is non-refundable
+                            once you begin the offline training program,
                             except where required by law.
                         </p>
                     </section>
@@ -68,7 +68,7 @@ const TermsConditions = () => {
                         <h2 className="section-title">Code of Conduct</h2>
                         <p className="legal-text">
                             Members of our training community must maintain a high standard of professional ethics.
-                            We reserve the right to terminate access for any individual whose behavior undermines
+                            We reserve the right to terminate your enrollment for any individual whose behavior undermines
                             the integrity of our high-performance environment.
                         </p>
                     </section>
