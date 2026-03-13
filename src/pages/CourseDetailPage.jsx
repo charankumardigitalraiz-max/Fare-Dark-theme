@@ -20,9 +20,9 @@ const CourseDetailPage = () => {
     }
 
     const levelColors = {
-        Beginner: '#00ffcc',
-        Intermediate: '#ffb800',
-        Advanced: '#ff6b6b',
+        Beginner: '#0d9488', // Teal
+        Intermediate: '#b45309', // Amber
+        Advanced: '#be123c', // Rose
     };
 
     const otherModules = modulesList.filter((m) => m.id !== course.id).slice(0, 3);

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import ApplyModal from './ApplyModal';
 import './Header.css';
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
@@ -31,7 +33,7 @@ const Header = () => {
                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
                     <Link to="/" className="logo-wrapper">
                         <img
-                            src="/white-log.png"
+                            src="/Fare-logo.png"
                             alt="Fare Reality Logo"
                             className="logo-img"
                             style={{
@@ -64,6 +66,7 @@ const Header = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         className="btn-premium"
+                        onClick={() => setIsModalOpen(true)}
                     >
                         Apply Now
                     </motion.button>
@@ -97,10 +100,24 @@ const Header = () => {
                                 {link.name}
                             </Link>
                         ))}
-                        <button className="btn-premium">Apply Now</button>
+                        <button
+                            className="btn-premium"
+                            onClick={() => {
+                                setIsMobileMenuOpen(false);
+                                setIsModalOpen(true);
+                            }}
+                        >
+                            Apply Now
+                        </button>
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* Apply Now Modal */}
+            <ApplyModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            />
         </header>
     );
 };

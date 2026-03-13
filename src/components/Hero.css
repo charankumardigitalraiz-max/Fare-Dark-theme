@@ -1,11 +1,6 @@
 .hero {
   /* Scope Dark Space Theme specifically to Hero */
-  --text-main: #ffffff;
-  --text-muted: #8892b0;
-  --bg-deep: #030305;
-  --primary-accent: #00ffcc;
-  --primary-deep: #005f73;
-  --glass-border: rgba(0, 255, 204, 0.15);
+  /* Remove local theme overrides to use global :root variables */
   
   position: relative;
   min-height: 100vh;
@@ -37,7 +32,7 @@
   transform: translate(-50%, -50%);
   width: 50vw;
   height: 50vh;
-  background: radial-gradient(circle at center, rgba(0, 255, 204, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(13, 148, 136, 0.03) 0%, transparent 70%);
   z-index: 1;
   pointer-events: none;
   filter: blur(80px);
@@ -68,7 +63,7 @@
   pointer-events: none;
   user-select: none;
   z-index: 2;
-  mix-blend-mode: screen; /* Makes black background transparent */
+  mix-blend-mode: multiply; /* Adjusted for light backgrounds */
 }
 
 .floating-element.bldg {
@@ -137,16 +132,16 @@
   align-items: center;
   gap: 8px;
   padding: 8px 24px;
-  background: rgba(0, 255, 204, 0.05); /* Cyber glow glow */
+  background: rgba(13, 148, 136, 0.05); 
   border-radius: 100px;
-  border: 1px solid rgba(0, 255, 204, 0.3);
+  border: 1px solid rgba(13, 148, 136, 0.2);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: var(--primary-accent);
   margin-bottom: 16px;
-  box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   backdrop-filter: blur(10px);
 }
 
@@ -157,7 +152,6 @@
   letter-spacing: -1px;
   color: var(--text-main);
   margin: 0;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
   font-family: 'Playfair Display', serif;
 }
 .stat-item{
@@ -198,7 +192,7 @@
   align-items: center;
   justify-content: center;
   gap: 48px;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(0,0,0,0.05);
   padding-top: 32px;
   width: 100%;
   max-width: 600px;

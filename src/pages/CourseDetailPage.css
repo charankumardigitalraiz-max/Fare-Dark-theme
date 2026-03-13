@@ -18,8 +18,8 @@
 /* Hero */
 .cd-hero {
     position: relative;
-    background: linear-gradient(160deg, rgba(0, 255, 204, 0.06) 0%, rgba(3, 3, 5, 0) 60%);
-    border-bottom: 1px solid rgba(0, 255, 204, 0.08);
+    background: linear-gradient(160deg, rgba(13, 148, 136, 0.06) 0%, rgba(255, 255, 255, 0) 60%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     padding: 100px 0 60px;
     overflow: hidden;
 }
@@ -30,7 +30,7 @@
     left: -100px;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(0, 255, 204, 0.07) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(13, 148, 136, 0.04) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -38,8 +38,8 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     color: var(--text-muted);
     padding: 8px 18px;
     border-radius: 50px;
@@ -100,8 +100,8 @@
 .cd-hero-icon {
     width: 72px;
     height: 72px;
-    background: rgba(0, 255, 204, 0.08);
-    border: 1px solid rgba(0, 255, 204, 0.15);
+    background: rgba(13, 148, 136, 0.05);
+    border: 1px solid rgba(13, 148, 136, 0.1);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -183,7 +183,7 @@
     letter-spacing: -0.5px;
     margin-bottom: 24px;
     padding-bottom: 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .cd-overview-text {
@@ -205,8 +205,8 @@
     align-items: flex-start;
     gap: 14px;
     padding: 16px 20px;
-    background: rgba(0, 255, 204, 0.03);
-    border: 1px solid rgba(0, 255, 204, 0.07);
+    background: rgba(13, 148, 136, 0.03);
+    border: 1px solid rgba(13, 148, 136, 0.07);
     border-radius: 14px;
     color: var(--text-muted);
     font-size: 0.97rem;
@@ -238,8 +238,9 @@
     align-items: center;
     gap: 20px;
     padding: 20px 24px;
-    background: rgba(15, 23, 42, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
     border-radius: 16px;
     transition: all 0.3s ease;
     position: relative;
@@ -339,12 +340,11 @@
 
 .cd-enroll-card {
     position: relative;
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(0, 255, 204, 0.12);
+    background: #ffffff;
+    border: 1px solid rgba(13, 148, 136, 0.12);
     border-radius: 24px;
     padding: 32px 28px;
-    overflow: hidden;
-    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
 .cd-enroll-glow {
@@ -426,8 +426,9 @@
 
 /* Other Modules */
 .cd-other-modules {
-    background: rgba(15, 23, 42, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
     border-radius: 20px;
     padding: 24px;
 }

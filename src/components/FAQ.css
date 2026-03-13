@@ -19,17 +19,17 @@
 }
 
 .faq-item-wrapper {
-    background: rgba(15, 23, 42, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 16px;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
 }
 
 .faq-item-wrapper:hover {
-    border-color: rgba(0, 255, 204, 0.1);
-    background: rgba(15, 23, 42, 0.5);
+    border-color: var(--primary-accent);
+    background: #ffffff;
 }
 
 .faq-item-wrapper.active {

@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700;900&display=swap');
 
 :root {
-  /* Global Modernization - Dark & Neon */
-  --bg-deep: #030305; /* Dark Space */
-  --bg-card: rgba(15, 23, 42, 0.5); /* Glass Background */
-  --primary-accent: #00ffcc; /* Cyber Glow Green/Cyan */
-  --gold-accent: #ffb800; /* Rich Gold */
-  --primary-deep: #005f73;
-  --primary-gradient: linear-gradient(135deg, #00ffcc 0%, #00bfa5 100%);
-  --gold-gradient: linear-gradient(135deg, #ffb800 0%, #ff8c00 100%);
-  --text-main: #ffffff; /* White */
-  --text-muted: #8892b0; /* Slate Grey */
-  --accent-glow: rgba(0, 255, 204, 0.15); /* Neon Glow */
-  --gold-glow: rgba(255, 184, 0, 0.3);
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(0, 255, 204, 0.1);
-  --border-radius: 24px;
+  /* Global Modernization - Premium Light Theme */
+  --bg-deep: #ffffff; /* pure white */
+  --bg-card: #f8fafc; /* Slate 50 */
+  --primary-accent: #0d9488; /* Teal 600 */
+  --gold-accent: #b45309; /* Amber 700 */
+  --primary-deep: #0f172a; /* Slate 900 */
+  --primary-gradient: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+  --gold-gradient: linear-gradient(135deg, #b45309 0%, #92400e 100%);
+  --text-main: #0f172a; /* Slate 900 */
+  --text-muted: #475569; /* Slate 600 */
+  --accent-glow: rgba(13, 148, 136, 0.1); 
+  --gold-glow: rgba(180, 83, 9, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(15, 23, 42, 0.1);
+  --border-radius: 20px;
 }
 
 * {

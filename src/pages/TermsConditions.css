@@ -18,6 +18,8 @@
     margin: 0 auto;
     padding: 60px;
     border-radius: 32px;
+    background: #ffffff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
 .legal-section {

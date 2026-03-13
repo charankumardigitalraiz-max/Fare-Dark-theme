@@ -45,7 +45,7 @@ const Hero = () => {
                         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                     />
                     <motion.img
-                        src="/assets/hero/certificate_glass.png"
+                        src="/assets/hero/  "
                         className="floating-element cert"
                         animate={{
                             y: [0, 25, 0],

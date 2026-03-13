@@ -37,17 +37,17 @@ const SpaceParticles = () => {
                             distance: 250,
                             links: {
                                 opacity: 0.6,
-                                color: "#00ffcc"
+                                color: "#0d9488"
                             }
                         },
                     },
                 },
                 particles: {
                     color: {
-                        value: ["#ffffff", "#00ffcc", "#005f73"], // Mixed colors for icons
+                        value: ["#0f172a", "#0d9488", "#b45309"], // Mixed colors for icons
                     },
                     links: {
-                        color: "#00ffcc",
+                        color: "#0d9488",
                         distance: 200,
                         enable: true, // Enable baseline connections
                         opacity: 0.15,
