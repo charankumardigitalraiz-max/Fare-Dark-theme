@@ -147,16 +147,16 @@
     flex-direction: column;
 }
 
-.stat-label {
-    font-size: 0.7rem;
+.cd-stat .stat-label {
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: var(--text-muted);
     font-weight: 600;
 }
 
-.stat-value {
-    font-size: 0.95rem;
+.cd-stat .stat-value {
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-main);
     margin-top: 2px;

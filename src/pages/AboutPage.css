@@ -72,7 +72,7 @@
 
 .about-stat-value {
     display: block;
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 5vw, 3rem);
     font-weight: 600;
     background: var(--gold-gradient);
     -webkit-background-clip: text;
