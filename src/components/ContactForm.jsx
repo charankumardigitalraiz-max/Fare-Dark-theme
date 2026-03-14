@@ -15,7 +15,7 @@ const ContactForm = ({
             viewport={{ once: true }}
             className={`contact-form-wrapper glass-effect ${centered ? 'text-center' : ''}`}
         >
-            {title && <h2 className="luxury-title text-4xl mb-4">{title}</h2>}
+            {title && <h2 className="luxury-title text-3xl mb-4">{title}</h2>}
             {description && <p className="text-text-muted mb-8">{description}</p>}
             <form className={`modern-form ${centered ? 'centered-form' : ''}`}>
                 <div className="form-row">

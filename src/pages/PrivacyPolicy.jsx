@@ -18,7 +18,7 @@ const PrivacyPolicy = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="luxury-title text-6xl "
+                        className="luxury-title text-4xl "
                     >
                         Privacy <span className="gold-text">Policy</span>
                     </motion.h1>

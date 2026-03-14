@@ -34,7 +34,7 @@ const GalleryPreview = () => {
                     >
                         Our Campus Life
                     </motion.span>
-                    <h2 className="luxury-title text-4xl mb-6">Visual <span className="gold-text">Highlights</span></h2>
+                    <h2 className="luxury-title text-3xl mb-6">Visual <span className="gold-text">Highlights</span></h2>
                 </div>
 
                 <div className="preview-grid">

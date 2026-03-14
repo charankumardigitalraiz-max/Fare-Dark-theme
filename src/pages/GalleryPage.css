@@ -63,7 +63,7 @@
     color: var(--gold-accent);
     border-radius: 100px;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 12px;
@@ -71,7 +71,7 @@
 
 .gallery-img-title {
     font-size: 1.4rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--text-main);
     font-family: 'Outfit', sans-serif;
 }

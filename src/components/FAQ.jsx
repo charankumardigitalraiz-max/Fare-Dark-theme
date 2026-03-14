@@ -75,7 +75,7 @@ const FAQ = () => {
                     >
                         Questions & Answers
                     </motion.span>
-                    <h2 className="luxury-title text-4xl">Common <span className="gold-text">Queries</span></h2>
+                    <h2 className="luxury-title text-3xl">Common <span className="gold-text">Queries</span></h2>
                 </div>
 
                 <div className="faq-container-modern">

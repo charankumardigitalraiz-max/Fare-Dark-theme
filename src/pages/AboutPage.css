@@ -73,7 +73,7 @@
 .about-stat-value {
     display: block;
     font-size: 3rem;
-    font-weight: 800;
+    font-weight: 600;
     background: var(--gold-gradient);
     -webkit-background-clip: text;
     background-clip: text;
@@ -124,7 +124,7 @@
 
 .value-title {
     font-size: 1.6rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--text-main);
     margin-bottom: 12px;
     font-family: 'Outfit', sans-serif;
@@ -132,7 +132,7 @@
 
 .value-description {
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--text-muted);
 }
 
@@ -154,7 +154,7 @@
 
 .highlight-item h4 {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text-main);
     margin-bottom: 16px;
     font-family: 'Outfit', sans-serif;
@@ -162,7 +162,8 @@
 
 .highlight-item p {
     color: var(--text-muted);
-    line-height: 1.5;
+    line-height: 1.7;
+    font-size: 1.05rem;
 }
 
 .gold-text {

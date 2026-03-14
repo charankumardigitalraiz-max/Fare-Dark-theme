@@ -71,7 +71,7 @@
     padding: 5px 14px;
     border-radius: 30px;
     font-size: 0.75rem;
-    font-weight: 800;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
 }
@@ -92,7 +92,7 @@
     padding: 5px 14px;
     border-radius: 30px;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -111,22 +111,22 @@
 }
 
 .cd-hero-title {
-    font-size: clamp(2.2rem, 5vw, 4rem);
-    font-weight: 800;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 600;
     color: var(--text-main);
     font-family: 'Outfit', sans-serif;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
     line-height: 1.05;
     margin-bottom: 16px;
     max-width: 700px;
 }
 
 .cd-hero-tagline {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: var(--text-muted);
     margin-bottom: 40px;
     max-width: 550px;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .cd-hero-stats {
@@ -152,12 +152,12 @@
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: var(--text-muted);
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .stat-value {
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text-main);
     margin-top: 2px;
 }
@@ -177,7 +177,7 @@
 
 .cd-section-title {
     font-size: 1.6rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--text-main);
     font-family: 'Outfit', sans-serif;
     letter-spacing: -0.5px;
@@ -188,7 +188,7 @@
 
 .cd-overview-text {
     color: var(--text-muted);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     line-height: 1.8;
 }
 
@@ -209,8 +209,8 @@
     border: 1px solid rgba(13, 148, 136, 0.07);
     border-radius: 14px;
     color: var(--text-muted);
-    font-size: 0.97rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    line-height: 1.7;
     transition: all 0.3s ease;
 }
 
@@ -254,7 +254,7 @@
 
 .cd-topic-day {
     font-size: 0.75rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--primary-accent);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -275,20 +275,20 @@
 
 .cd-topic-title {
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text-main);
     margin-bottom: 4px;
     font-family: 'Outfit', sans-serif;
 }
 
 .cd-topic-desc {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: var(--text-muted);
 }
 
 .cd-topic-num {
     font-size: 2rem;
-    font-weight: 900;
+    font-weight: 600;
     color: rgba(255, 255, 255, 0.04);
     font-family: 'Outfit', sans-serif;
     letter-spacing: -2px;
@@ -311,8 +311,8 @@
     border: 1px solid rgba(255, 184, 0, 0.1);
     border-radius: 14px;
     color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.7;
     transition: all 0.3s ease;
 }
 
@@ -359,16 +359,16 @@
 
 .cd-enroll-title {
     font-size: 1.35rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--text-main);
     font-family: 'Outfit', sans-serif;
     margin-bottom: 10px;
 }
 
 .cd-enroll-desc {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text-muted);
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 24px;
 }
 
@@ -435,7 +435,7 @@
 
 .cd-other-title {
     font-size: 1rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--text-main);
     font-family: 'Outfit', sans-serif;
     margin-bottom: 16px;
@@ -481,7 +481,7 @@
 
 .cd-other-module-tag {
     font-size: 0.65rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -489,7 +489,7 @@
 
 .cd-other-module-title {
     font-size: 0.88rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text-main);
     margin-top: 2px;
     line-height: 1.3;
@@ -506,7 +506,7 @@
     text-align: center;
     margin-top: 16px;
     font-size: 0.85rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--primary-accent);
     text-decoration: none;
     padding: 10px;

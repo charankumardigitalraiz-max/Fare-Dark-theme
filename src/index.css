@@ -28,17 +28,22 @@ body {
   font-family: 'Outfit', sans-serif;
   background-color: var(--bg-deep);
   color: var(--text-main);
-  line-height: 1.6;
+  line-height: 1.8;
+  font-size: 1.05rem;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   min-height: 100vh;
 }
 
 h1, h2, h3, .luxury-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: var(--text-main);
+  letter-spacing: -1px;
+  line-height: 1.1;
   font-family: 'Outfit', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  font-style: normal;
+  /* text-align: center; */
 }
 
 .institutional-title {
@@ -69,7 +74,7 @@ h1, h2, h3, .luxury-title {
   color: #fff;
   border: none;
   border-radius: 6px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-transform: uppercase;
@@ -92,7 +97,7 @@ h1, h2, h3, .luxury-title {
   color: var(--bg-deep);
   border: none;
   border-radius: 12px;
-  font-weight: 800;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   text-transform: uppercase;
@@ -135,7 +140,7 @@ h1, h2, h3, .luxury-title {
   padding: 6px 16px;
   border-radius: 100px;
   font-size: 0.85rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   border: 1px solid rgba(0, 255, 204, 0.2);
@@ -154,6 +159,7 @@ h1, h2, h3, .luxury-title {
 
 .text-muted {
   color: var(--text-muted);
+  line-height: 1.8;
 }
 
 .text-lg {
@@ -175,7 +181,7 @@ h1, h2, h3, .luxury-title {
 
 .luxury-title {
   font-family: 'Outfit', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.5px;
   line-height: 1.2;
 }

@@ -15,7 +15,7 @@ const Hero = () => {
                 {/* Large Floating Elements */}
                 <div className="floating-elements-container">
                     <motion.img
-                        src="/assets/hero/building_glass.png"
+                        src="/assets/hero/19.png"
                         className="floating-element bldg"
                         animate={{
                             y: [0, -30, 0],
@@ -25,7 +25,7 @@ const Hero = () => {
                         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                     />
                     <motion.img
-                        src="/assets/hero/house_glass.png"
+                        src="/assets/hero/20.png"
                         className="floating-element hs"
                         animate={{
                             y: [0, 40, 0],
@@ -35,7 +35,7 @@ const Hero = () => {
                         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                     />
                     <motion.img
-                        src="/assets/hero/key_glass.png"
+                        src="/assets/hero/21.png"
                         className="floating-element ky"
                         animate={{
                             y: [0, -20, 0],
@@ -45,7 +45,7 @@ const Hero = () => {
                         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                     />
                     <motion.img
-                        src="/assets/hero/  "
+                        src="/assets/hero/22.png"
                         className="floating-element cert"
                         animate={{
                             y: [0, 25, 0],

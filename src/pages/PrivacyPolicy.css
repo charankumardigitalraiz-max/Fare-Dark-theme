@@ -37,7 +37,7 @@
     left: 0;
     top: 0;
     font-size: 1.5rem;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--gold-accent);
     opacity: 0.5;
     font-family: 'Outfit', sans-serif;
@@ -45,7 +45,7 @@
 
 .section-title {
     font-size: 1.8rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--text-main);
     margin-bottom: 24px;
     font-family: 'Outfit', sans-serif;

@@ -8,6 +8,29 @@
     margin-bottom: 40px;
 }
 
+
+.whychoose-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: var(--text-main);
+  letter-spacing: -1px;
+  line-height: 1.1;
+  font-family: 'Outfit', sans-serif;
+  text-align: center;
+  /* max-width: 800px; */
+}
+
+.modern-text-gradient {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-right: 10px;
+}
+
+
 .why-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -45,7 +68,7 @@
 
 .why-card-title {
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--text-main);
     margin-bottom: 16px;
     font-family: 'Outfit', sans-serif;
@@ -53,9 +76,9 @@
 }
 
 .why-card-text {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .why-card-glow {

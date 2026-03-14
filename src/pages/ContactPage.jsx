@@ -19,7 +19,7 @@ const ContactPage = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="luxury-title text-6xl mb-6"
+                        className="luxury-title text-4xl mb-6"
                     >
                         Ready to <span className="gold-text">Launch</span> Your Career?
                     </motion.h1>

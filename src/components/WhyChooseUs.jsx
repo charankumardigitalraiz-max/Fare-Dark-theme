@@ -31,7 +31,7 @@ const WhyChooseUs = () => {
         <section className="why-choose-section section-padding">
             <div className="container">
                 <div className="why-header text-center mb-16">
-                    <motion.span 
+                    <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -39,12 +39,12 @@ const WhyChooseUs = () => {
                     >
                         The Fare Advantage
                     </motion.span>
-                    <h2 className="luxury-title text-5xl">Why <span className="gold-text">Elite</span> Professionals <br />Choose Us?</h2>
+                    <div className="whychoose-title text-4xl">Why <span className="gold-text">Elite</span> Professionals <br />Choose Us?</div>
                 </div>
 
                 <div className="why-grid">
                     {reasons.map((reason, index) => (
-                        <motion.div 
+                        <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}

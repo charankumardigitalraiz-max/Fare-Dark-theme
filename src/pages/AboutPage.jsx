@@ -41,7 +41,7 @@ const AboutPage = () => {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
-                                className="luxury-title text-5xl lg:text-6xl mb-8"
+                                className="luxury-title text-3xl lg:text-4xl mb-8"
                             >
                                 Pioneering <span className="primary-text">Elite</span> <br />
                                 Real Estate Education
@@ -114,7 +114,7 @@ const AboutPage = () => {
 
             <section className="leadership-section section-padding">
                 <div className="container text-center">
-                    <h2 className="luxury-title text-4xl mb-16">The <span className="gold-text">Institutional</span> Edge</h2>
+                    <h2 className="luxury-title text-3xl mb-16">The <span className="gold-text">Institutional</span> Edge</h2>
                     <div className="edge-highlight-grid">
                         <div className="highlight-item">
                             <Award size={40} className="highlight-icon" />

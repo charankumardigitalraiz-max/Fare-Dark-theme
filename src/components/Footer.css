@@ -22,7 +22,7 @@
 .footer-logo {
     text-decoration: none;
     font-size: 1.8rem;
-    font-weight: 900;
+    font-weight: 600;
     letter-spacing: -1px;
     display: block;
     margin-bottom: 24px;
@@ -31,8 +31,8 @@
 
 .footer-bio {
     color: var(--text-muted);
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    line-height: 1.7;
     max-width: 320px;
     margin-bottom: 28px;
 }
@@ -64,7 +64,7 @@
 
 .footer-heading {
     font-size: 1.1rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--text-main);
     margin-bottom: 30px;
     font-family: 'Outfit', sans-serif;
@@ -84,8 +84,8 @@
     color: var(--text-main);
     opacity: 0.7;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 1rem;
+    font-weight: 600;
+    font-size: 1.05rem;
     transition: all 0.33s cubic-bezier(0.22, 1, 0.36, 1);
     display: flex;
     align-items: center;

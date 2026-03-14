@@ -29,7 +29,7 @@ const ApplyModal = ({ isOpen, onClose }) => {
                         <div className="modal-sidebar">
                             <div className="sidebar-content">
                                 <div className="brand-badge">Apply Now</div>
-                                <h2>Build Your Future with <span className="highlight">Fair</span></h2>
+                                <h2 style={{ color: "#fff" }}>Build Your Future with <span className="highlight">Fair</span></h2>
                                 <p>Join the next generation of real estate professionals. Expert mentoring, real-world projects, and certified growth.</p>
                                 <div className="sidebar-features">
                                     <div className="s-feature"><span>✓</span> Expert Mentoring</div>

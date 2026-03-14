@@ -18,7 +18,7 @@ const TermsConditions = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="luxury-title text-6xl"
+                        className="luxury-title text-4xl"
                     >
                         Terms & <span className="gold-text">Conditions</span>
                     </motion.h1>

@@ -84,25 +84,25 @@ const SpaceParticles = () => {
                             image: [
                                 // House Image
                                 {
-                                    src: "/assets/hero/house_glass.png",
+                                    src: "/assets/hero/23.png",
                                     width: 100,
                                     height: 100
                                 },
                                 // Key Image
                                 {
-                                    src: "/assets/hero/key_glass.png",
+                                    src: "/assets/hero/24.png",
                                     width: 100,
                                     height: 100
                                 },
                                 // Building Image
                                 {
-                                    src: "/assets/hero/building_glass.png",
+                                    src: "/assets/hero/25.png",
                                     width: 100,
                                     height: 100
                                 },
                                 // Certificate Image
                                 {
-                                    src: "/assets/hero/certificate_glass.png",
+                                    src: "/assets/hero/21.png",
                                     width: 100,
                                     height: 100
                                 }

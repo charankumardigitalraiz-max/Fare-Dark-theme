@@ -17,7 +17,7 @@
   padding: 8px 18px;
   border-radius: 100px;
   font-size: 0.8rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 24px;
@@ -30,7 +30,7 @@
 
 .category-title {
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 600;
   margin-bottom: 48px;
   display: flex;
   align-items: center;
@@ -82,7 +82,7 @@
 
 .course-id {
   font-size: 0.7rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--primary-accent);
   background: rgba(0, 255, 204, 0.05);
   padding: 8px 16px;
@@ -94,7 +94,7 @@
 
 .course-main-title {
   font-size: 1.6rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-main);
   margin-bottom: 24px;
   line-height: 1.25;
@@ -112,7 +112,7 @@
   align-items: flex-start;
   gap: 16px;
   margin-bottom: 16px;
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
 }
 
@@ -123,7 +123,7 @@
 }
 
 .info-label {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-main);
   margin-right: 6px;
 }
@@ -185,8 +185,8 @@
 }
 
 .cta-title {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 600;
   color: var(--text-main);
   margin-bottom: 16px;
   position: relative;
@@ -201,11 +201,11 @@
 }
 
 .cta-description {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--text-muted);
   max-width: 640px;
   margin: 0 auto 32px;
-  line-height: 1.5;
+  line-height: 1.7;
   position: relative;
   z-index: 1;
 }
@@ -225,7 +225,7 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--text-muted);
   border-radius: 12px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   font-size: 0.9rem;
   font-family: 'Outfit', sans-serif;
@@ -299,7 +299,7 @@
 
 .clc-module-tag {
   font-size: 0.65rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -307,7 +307,7 @@
 
 .clc-level-tag {
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary-accent);
   background: rgba(0, 255, 204, 0.08);
   border: 1px solid rgba(0, 255, 204, 0.15);
@@ -317,7 +317,7 @@
 
 .clc-title {
   font-size: 1.3rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-main);
   font-family: 'Outfit', sans-serif;
   letter-spacing: -0.5px;
@@ -325,9 +325,9 @@
 }
 
 .clc-tagline {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .clc-info-row {
@@ -379,7 +379,7 @@
   margin-top: auto;
   padding-top: 16px;
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary-accent);
   text-decoration: none;
   border-top: 1px solid rgba(255, 255, 255, 0.05);

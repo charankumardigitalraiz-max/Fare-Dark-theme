@@ -17,12 +17,12 @@
 
 
 .modules-title {
-  font-size: clamp(3.5rem, 8vw, 5.5rem);
-  font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
   margin-bottom: 28px;
   color: var(--text-main);
-  letter-spacing: -3px;
-  line-height: 0.95;
+  letter-spacing: -1px;
+  line-height: 1.1;
   font-family: 'Outfit', sans-serif;
   max-width: 800px;
 }
@@ -41,7 +41,7 @@
   max-width: 600px;
   margin: 0 auto;
   font-size: 1.25rem;
-  line-height: 1.6;
+  line-height: 1.7;
   font-weight: 400;
 }
 
@@ -102,7 +102,7 @@
 
 .module-tag {
   font-size: 0.65rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -134,7 +134,7 @@
 
 .module-title-modern {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.25;
   color: var(--text-main);
   margin-bottom: 8px;
@@ -143,9 +143,9 @@
 }
 
 .module-tagline {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 14px;
 }
 
@@ -159,7 +159,7 @@
 
 .learn-more {
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary-accent);
 }
 .modern-module-card:hover .learn-more,
@@ -215,7 +215,7 @@
   background: var(--gold-gradient);
   color: var(--bg-deep);
   border-radius: 12px;
-  font-weight: 800;
+  font-weight: 600;
   text-decoration: none;
   font-size: 1rem;
   position: relative;
@@ -284,19 +284,19 @@
   color: var(--primary-accent);
   border-radius: 100px;
   font-size: 0.75rem;
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 24px;
 }
 
 .edge-title {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.1;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  line-height: 1.2;
   color: var(--primary-deep);
   margin-bottom: 32px;
-  letter-spacing: -1.5px;
+  letter-spacing: -1px;
 }
 
 .edge-description {
@@ -331,7 +331,7 @@
 
 .feature-heading {
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--primary-deep);
   margin-bottom: 4px;
 }
@@ -377,14 +377,14 @@
 
 .overlay-number {
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--primary-accent);
   line-height: 1;
 }
 
 .overlay-label {
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--primary-deep);
