@@ -60,21 +60,21 @@ const CourseDetailPage = () => {
 
                         <div className="cd-hero-stats">
                             <div className="cd-stat">
-                                <Clock size={18} />
+                                <Clock size={18} className='gold-text' />
                                 <div>
                                     <span className="stat-label">Duration</span>
                                     <span className="stat-value">{course.duration}</span>
                                 </div>
                             </div>
                             <div className="cd-stat">
-                                <Users size={18} />
+                                <Users size={18} className='gold-text' />
                                 <div>
                                     <span className="stat-label">Eligibility</span>
                                     <span className="stat-value">{course.eligibility}</span>
                                 </div>
                             </div>
                             <div className="cd-stat">
-                                <BookOpen size={18} />
+                                <BookOpen size={18} className='gold-text' />
                                 <div>
                                     <span className="stat-label">Level</span>
                                     <span className="stat-value">{course.level}</span>

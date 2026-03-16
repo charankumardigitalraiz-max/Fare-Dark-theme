@@ -79,7 +79,7 @@ const Footer = () => {
 
                 <div className="footer-bottom-bar">
                     <p className="footer-copyright">
-                        © 2026 FAIRE REALITY. All rights reserved. <span className="gold-text">Premium Experience.</span>
+                        © 2026 FAIRE REALITY. All rights reserved.
                     </p>
                     <div className="legal-links">
                         <Link to="/privacy-policy">Privacy Policy</Link>

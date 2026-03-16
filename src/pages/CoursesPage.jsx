@@ -13,7 +13,7 @@ const CoursesPage = () => {
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="hero-subtitle"
+                        className="modern-badge"
                     >
                         Offline Career Launch Program
                     </motion.span>
