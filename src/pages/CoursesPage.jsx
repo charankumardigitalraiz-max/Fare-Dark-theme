@@ -23,7 +23,7 @@ const CoursesPage = () => {
                         transition={{ delay: 0.2 }}
                         className="luxury-title text-4xl mb-8"
                     >
-                        Explore <span className="primary-text">Professional</span> Curriculum
+                        Explore <span className="modern-text-gradient">Professional</span> Curriculum
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 30 }}

@@ -30,35 +30,35 @@ const AboutPage = () => {
                 <div className="container">
                     <div className="about-hero-grid">
                         <div className="about-hero-content">
-                            <motion.span 
+                            <motion.span
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 className="modern-badge mb-6"
                             >
                                 Our Story
                             </motion.span>
-                            <motion.h1 
+                            <motion.h1
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
                                 className="luxury-title text-3xl lg:text-4xl mb-8"
                             >
-                                Pioneering <span className="primary-text">Elite</span> <br />
+                                Pioneering <span className="modern-text-gradient">Elite</span> <br />
                                 Real Estate Education
                             </motion.h1>
-                            <motion.p 
+                            <motion.p
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4 }}
                                 className="text-text-muted max-w-xl text-lg mb-12"
                             >
-                                Fare Reality isn't just an academy; it's a launchpad for the next generation of property moguls. 
+                                Fare Reality isn't just an academy; it's a launchpad for the next generation of property moguls.
                                 We combine aggressive sales psychology with deep technical compliance to create unstoppable professionals.
                             </motion.p>
-                            
+
                             <div className="about-stats-grid">
                                 {stats.map((stat, index) => (
-                                    <motion.div 
+                                    <motion.div
                                         key={stat.label}
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         whileInView={{ opacity: 1, scale: 1 }}
@@ -73,16 +73,16 @@ const AboutPage = () => {
                             </div>
                         </div>
 
-                        <motion.div 
+                        <motion.div
                             className="about-hero-image-wrapper"
                             initial={{ opacity: 0, x: 50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.3, duration: 0.6 }}
                         >
                             <div className="about-hero-glow"></div>
-                            <img 
-                                src="/training-session-new.png" 
-                                alt="Fare Reality Training Session" 
+                            <img
+                                src="/training-session-new.png"
+                                alt="Fare Reality Training Session"
                                 className="about-hero-img"
                             />
                         </motion.div>
@@ -94,7 +94,7 @@ const AboutPage = () => {
                 <div className="container">
                     <div className="values-grid">
                         {values.map((item, index) => (
-                            <motion.div 
+                            <motion.div
                                 key={item.title}
                                 initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
