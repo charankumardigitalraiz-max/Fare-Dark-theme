@@ -8,34 +8,34 @@ const ContactPage = () => {
         <div className="contact-page section-padding">
             <div className="container">
                 <header className="contact-header text-center mb-10" >
-                    <motion.span 
+                    <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="modern-badge mb-6"
                     >
                         Get In Touch
                     </motion.span>
-                    <motion.h1 
+                    <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="luxury-title text-4xl mb-6"
+                        className="luxury-title text-4xl mb-2"
                     >
                         Ready to <span className="gold-text">Launch</span> Your Career?
                     </motion.h1>
-                    <motion.p 
+                    <motion.p
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                         className="text-text-muted max-w-2xl mx-auto text-lg"
                     >
-                        Have questions about our modules? Want to visit our offline campus? 
+                        Have questions about our modules? Want to visit our offline campus?
                         Our team of experts is here to guide you.
                     </motion.p>
                 </header>
 
                 <div className="contact-grid">
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: -40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -43,7 +43,7 @@ const ContactPage = () => {
                     >
                         <div className="contact-card glass-effect mb-8">
                             <h3 className="card-title mb-8">Contact Information</h3>
-                            
+
                             <div className="info-item">
                                 <div className="info-icon-box">
                                     <Phone size={20} />
@@ -85,7 +85,7 @@ const ContactPage = () => {
                         </div>
                     </motion.div>
 
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: 40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
