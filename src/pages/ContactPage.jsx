@@ -7,7 +7,7 @@ const ContactPage = () => {
     return (
         <div className="contact-page section-padding">
             <div className="container">
-                <header className="contact-header text-center mb-10" >
+                <header className="contact-header text-center mb-10 mt-5" >
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
