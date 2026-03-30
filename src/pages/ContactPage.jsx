@@ -11,7 +11,7 @@ const ContactPage = () => {
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="modern-badge mb-6"
+                        className="modern-badge mb-3"
                     >
                         Get In Touch
                     </motion.span>

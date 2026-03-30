@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Clock, Users, BookOpen, CheckCircle, ArrowRight } from 'lucide-react';
+import { Clock, Users, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { modulesList } from '../data/coursesData.jsx';
 import './CoursesPage.css';
@@ -31,7 +31,7 @@ const CoursesPage = () => {
                         transition={{ delay: 0.4 }}
                         className="text-text-muted max-w-3xl mx-auto text-lg mb-12"
                     >
-                        Our intensive offline training program covers 8 specialized modules
+                        Our intensive offline training program covers 22 specialized modules
                         designed to take you from fundamentals to closing high-value deals.
                     </motion.p>
                 </header>
@@ -77,11 +77,6 @@ const CoursesPage = () => {
                                         </li>
                                     ))}
                                 </ul>
-
-                                <Link to={`/course/${mod.id}`} className="clc-cta">
-                                    <span>Explore Module</span>
-                                    <ArrowRight size={16} />
-                                </Link>
                             </div>
                         </motion.div>
                     ))}
@@ -97,7 +92,7 @@ const CoursesPage = () => {
                         <div className="cta-glow"></div>
                         <h2 className="cta-title">Ready to <span className="gold-text">Start Your Journey?</span></h2>
                         <p className="cta-description">
-                            Our complete curriculum covers all 8 modules with hands-on training, site visits,
+                            Our complete curriculum covers all 22 modules with hands-on training, site visits,
                             and 100% Placement Support to launch your real estate career with confidence.
                         </p>
                         <div className="cta-action-row">
