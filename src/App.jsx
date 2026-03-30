@@ -10,6 +10,8 @@ import GalleryPage from './pages/GalleryPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import CourseDetailPage from './pages/CourseDetailPage';
+import FreshersPage from './pages/FreshersPage';
+import TrainerPage from './pages/TrainerPage';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -29,6 +31,8 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
             <Route path="/course/:id" element={<CourseDetailPage />} />
+            <Route path="/freshers" element={<FreshersPage />} />
+            <Route path="/trainer" element={<TrainerPage />} />
           </Routes>
         </main>
         <Footer />
