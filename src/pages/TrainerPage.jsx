@@ -82,6 +82,9 @@ const ExpandableCollabCard = ({ fmt, idx }) => {
 
         <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700, marginTop: '12px', marginBottom: '4px' }}>Ideal For</div>
         <div style={{ fontWeight: 500, color: 'var(--text-main)' }}>{fmt.ideal}</div>
+
+        <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700, marginTop: '12px', marginBottom: '4px' }}>Duration</div>
+        <div style={{ fontWeight: 500, color: 'var(--text-main)' }}>{fmt.duration}</div>
       </div>
 
       <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column' }}>
@@ -141,8 +144,18 @@ const TrainerPage = () => {
             transition={{ delay: 0.4 }}
             className="text-text-muted max-w-3xl mx-auto text-lg mb-12"
           >
-            Build your presence as a trainer, mentor, or knowledge partner with FARE — and create meaningful impact across the real estate ecosystem. Deliver workshops, lead bootcamps, or launch co-branded programs aligned to real industry needs.
+            Build your presence as a trainer, mentor, or knowledge partner with FARE — and create meaningful impact across the real estate ecosystem.
+            <br />
+            Deliver workshops, lead bootcamps, or launch co-branded programs aligned to real industry needs.
           </motion.p>
+          {/* <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          // className="text-text-muted max-w-3xl mx-auto text-lg mb-12"
+          > */}
+          {/* Deliver workshops, lead bootcamps, or launch co-branded programs aligned to real industry needs. */}
+          {/* </motion.p> */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -169,10 +182,10 @@ const TrainerPage = () => {
           <div className="course-all-grid grid-5-cols">
             {[
               { title: "Experienced Real Estate Professionals", tag: "(Sales, CRM, Banking, Legal)", desc: "Turn your experience into structured training and industry influence.", icon: <Briefcase size={20} /> },
-              { title: "Existing Trainers & Coaches", tag: "Co-Branded Programs", desc: "Launch and scale co-branded programs with FARE and expand your reach.", icon: <Award size={20} /> },
-              { title: "Freelance Realtors & Partners", tag: "(Residential, Commercial, Open Plot)", desc: "Convert your deal experience into training and build your network.", icon: <Map size={20} /> },
+              { title: "Existing Real Estate Trainers & Coaches", tag: "Co-Branded Programs", desc: "Launch and scale co-branded programs with FARE and expand your reach.", icon: <Award size={20} /> },
+              { title: "Freelance Realtors & Channel Partners", tag: "(Residential, Commercial, Open Plot)", desc: "Convert your deal experience into training and build your network.", icon: <Map size={20} /> },
               { title: "Digital Media Experts", tag: "(Performance Marketers, Influencers)", desc: "Turn your digital expertise into training that improves campaign ROI and builds brands.", icon: <Globe size={20} /> },
-              { title: "Communication Trainers", tag: "(Soft Skills & English for Real Estate)", desc: "Apply your skills to real estate and improve client communication & conversion.", icon: <MessageSquare size={20} /> }
+              { title: "Communication & Language Trainers", tag: "(Soft Skills & English for Real Estate)", desc: "Apply your skills to real estate and improve client communication & conversion.", icon: <MessageSquare size={20} /> }
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -199,7 +212,7 @@ const TrainerPage = () => {
             <div>
               <h2 className="category-title">About FARE</h2>
               <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: 'var(--gold-accent)', marginBottom: '24px' }}>
-                Finishing Academy for Real Estate
+                FARE - Finishing Academy for Real Estate
               </h3>
               <p className="clc-tagline" style={{ fontSize: '1.1rem', marginBottom: '32px' }}>
                 FARE aims to empower real estate professionals to improve productivity, close more effectively, and scale their careers across both salaried roles and freelance models.
@@ -265,7 +278,7 @@ const TrainerPage = () => {
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '40px', textAlign: 'center' }}>
             <span className="modern-badge" style={{ marginBottom: '16px' }}>Impact Areas</span>
             <h2 className="category-title text-center" style={{ marginBottom: '16px', justifyContent: 'center' }}>
-              Make a<span className="modern-text-gradient" style={{ paddingRight: 0 }}>Difference</span>
+              Areas Where You Can <span className="modern-text-gradient" style={{ paddingRight: 0 }}>Make A Difference</span>
             </h2>
             <p className="text-text-muted mx-auto" style={{ maxWidth: '600px' }}>
               Contribute Across the Real Estate Funnel
@@ -288,7 +301,7 @@ const TrainerPage = () => {
           <h3 className="text-center" style={{ fontSize: '1.8rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '30px' }}>Capability Layers</h3>
           <div className="course-all-grid">
             {[
-              { title: "Communication & Conversion", icon: <MessageSquare size={20} />, topics: ["English for Real Estate", "Client Conversations & Presentation", "Objection Handling & Closing"] },
+              { title: "Communication & Conversion Skills", icon: <MessageSquare size={20} />, topics: ["English for Real Estate", "Client Conversations & Presentation", "Objection Handling & Closing"] },
               { title: "Cross-Functional Expertise", icon: <ShieldCheck size={20} />, topics: ["Legal & Documentation", "Home Loans & Financing", "CRM & Operational Processes"] },
               { title: "Specialty Sales Tracks", icon: <Award size={20} />, topics: ["Luxury Real Estate", "High-Rise Sales", "Plots, Land & Investment Sales"] }
             ].map((layer, idx) => (
@@ -321,7 +334,7 @@ const TrainerPage = () => {
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '40px', textAlign: 'center' }}>
             <span className="modern-badge" style={{ marginBottom: '16px' }}>Delivery Formats</span>
             <h2 className="category-title text-center" style={{ marginBottom: '16px', justifyContent: 'center' }}>
-              Ways to<span className="modern-text-gradient" style={{ padding: "0px", margin: "0px", paddingRight: 0 }}>Collaborate</span>
+              Ways to Deliver Your<span className="modern-text-gradient" style={{ padding: "0px", margin: "0px", paddingRight: 0 }}>Expertise & Collaborate</span>
             </h2>
             <p className="text-text-muted mx-auto" style={{ maxWidth: '600px' }}>
               Choose the Format Based on the Impact You Want to Create
@@ -339,6 +352,52 @@ const TrainerPage = () => {
             ))}
           </div>
         </section>
+
+
+
+        {/* 6. TOPIC TEASER + CTA */}
+        <section className="syllabus-cta-section">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="syllabus-cta-modern"
+          >
+            <div className="cta-glow"></div>
+            <h2 className="cta-title">100+ Workshop & Bootcamp Topics Across the <span className="gold-text">Real Estate Funnel</span></h2>
+            <p className="cta-description">
+              FARE offers a curated library of workshops, bootcamps, and structured programs aligned to real-world roles and outcomes in real estate.
+            </p>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center', marginBottom: '40px', position: 'relative', zIndex: 1 }}>
+              {[
+                "Lead generation & digital campaigns ", "Pre-sales & CRM systems", "Sales, negotiation & closing",
+                "Revenue & collections", "Freelancing & branding", "Cross-functional & communication"
+              ].map((text, i) => (
+                <div key={i} style={{ background: 'rgba(13, 148, 136, 0.05)', padding: '8px 20px', borderRadius: '100px', fontWeight: 600, color: 'var(--primary-accent)', fontSize: '0.9rem', border: '1px solid rgba(13, 148, 136, 0.15)' }}>
+                  {text}
+                </div>
+              ))}
+            </div>
+            <div className="fit-banner">
+              <p>
+                <Target size={20} className="fit-banner-icon" />
+                <span>Let's find where you fit..</span>
+              </p>
+            </div>
+            <div className="cta-action-row">
+              <button onClick={() => setIsModalOpen(true)} className="btn-gold btn-sm">Request Topic List</button>
+              <button onClick={() => setIsModalOpen(true)} className="btn-ghost btn-sm" style={{ border: '1px solid rgba(0,0,0,0.1)' }}>Talk to Us About Your Expertise</button>
+            </div>
+            <p style={{ marginTop: '20px', fontSize: '0.9rem', color: 'var(--text-muted)', position: 'relative', zIndex: 1 }}>
+              We'll share relevant topics and align you to the right programs based on your experience.
+            </p>
+          </motion.div>
+        </section>
+
+
+
+
 
         {/* 6. Corporate Office (Info Block) */}
         <section className="category-section">
@@ -366,31 +425,55 @@ const TrainerPage = () => {
         </section>
 
         {/* 8. WHAT FARE OFFERS VS EXPECTS */}
-        <section className="category-section">
+        <section className="category-section competition-layout">
           <div className="expectation-split-grid">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="course-list-card" style={{ padding: '24px 32px' }}>
-              <h3 className="clc-title" style={{ fontSize: '1.4rem', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                <CheckCircle size={24} style={{ color: 'var(--primary-accent)' }} /> What FARE Offers
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="course-list-card offers-card"
+            >
+              <div className="side-badge left">The Opportunity</div>
+              <h3 className="clc-title" style={{ fontSize: 'clamp(1.4rem, 4vw, 1.8rem)', display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '24px' }}>
+                <CheckCircle size={28} style={{ color: 'var(--primary-accent)' }} /> What FARE Offers
               </h3>
-              <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px 16px' }}>
+              <ul className="competition-list">
                 {["Structured ecosystem", "Ready frameworks", "Lead generation support", "Sales handled by FARE", "Brand building", "Scaling opportunities"].map((item, i) => (
-                  <li key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', fontWeight: '600', color: 'var(--text-main)', fontSize: '0.95rem' }}>
-                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary-accent)', flexShrink: 0, marginTop: '6px' }}></div>
-                    <span style={{ lineHeight: 1.4 }}>{item}</span>
+                  <li key={i} className="competition-item">
+                    <div className="dot primary"></div>
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="course-list-card solid-deep" style={{ padding: '24px 32px' }}>
-              <h3 className="clc-title" style={{ fontSize: '1.4rem', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px', color: 'white' }}>
-                <Target size={24} style={{ color: 'var(--gold-accent)' }} /> What We Expect
+            <div className="vs-container">
+              <motion.div
+                initial={{ scale: 0, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", stiffness: 200, damping: 12 }}
+                className="vs-badge"
+              >
+                <span>VS</span>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="course-list-card solid-deep expects-card"
+            >
+              <div className="side-badge right">The Commitment</div>
+              <h3 className="clc-title" style={{ fontSize: 'clamp(1.4rem, 4vw, 1.8rem)', display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '24px', color: 'white' }}>
+                <Target size={28} style={{ color: 'var(--gold-accent)' }} /> What We Expect
               </h3>
-              <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px 16px' }}>
+              <ul className="competition-list">
                 {["Practical expertise", "Teaching ability", "Professional commitment", "Alignment with FARE structure", "Focus on outcomes"].map((item, i) => (
-                  <li key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', fontWeight: '500', color: 'rgba(255,255,255,0.9)', fontSize: '0.95rem' }}>
-                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--gold-accent)', flexShrink: 0, marginTop: '6px' }}></div>
-                    <span style={{ lineHeight: 1.4 }}>{item}</span>
+                  <li key={i} className="competition-item light">
+                    <div className="dot gold"></div>
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -398,45 +481,12 @@ const TrainerPage = () => {
           </div>
         </section>
 
-        {/* 6. TOPIC TEASER + CTA */}
-        <section className="syllabus-cta-section">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="syllabus-cta-modern"
-          >
-            <div className="cta-glow"></div>
-            <h2 className="cta-title">100+ Topics Across the <span className="gold-text">Real Estate Funnel</span></h2>
-            <p className="cta-description">
-              FARE offers a curated library of workshops, bootcamps, and structured programs aligned to real-world roles and outcomes in real estate. Let's find where you fit.
-            </p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center', marginBottom: '40px', position: 'relative', zIndex: 1 }}>
-              {[
-                "Lead Generation", "Pre-Sales & CRM", "Negotiation & Closing",
-                "Revenue & Collections", "Freelancing & Branding", "Cross-Functional"
-              ].map((text, i) => (
-                <div key={i} style={{ background: 'rgba(13, 148, 136, 0.05)', padding: '8px 20px', borderRadius: '100px', fontWeight: 600, color: 'var(--primary-accent)', fontSize: '0.9rem', border: '1px solid rgba(13, 148, 136, 0.15)' }}>
-                  {text}
-                </div>
-              ))}
-            </div>
-
-            <div className="cta-action-row">
-              <button onClick={() => setIsModalOpen(true)} className="btn-gold btn-sm">Request Topic List</button>
-              <button onClick={() => setIsModalOpen(true)} className="btn-ghost btn-sm" style={{ border: '1px solid rgba(0,0,0,0.1)' }}>Discuss Your Expertise</button>
-            </div>
-            <p style={{ marginTop: '20px', fontSize: '0.9rem', color: 'var(--text-muted)', position: 'relative', zIndex: 1 }}>
-              We'll share relevant topics and align you to the right programs based on your experience.
-            </p>
-          </motion.div>
-        </section>
 
         {/* 9. FINAL CTA SECTION */}
-        <section className="category-section" style={{ marginBottom: '80px' }}>
-          <motion.div 
-            className="course-list-card solid-deep" 
+        <section className="category-section" style={{ marginBottom: '20px' }}>
+          <motion.div
+            className="course-list-card solid-deep"
             style={{ padding: '60px 40px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -456,7 +506,7 @@ const TrainerPage = () => {
               <p className="clc-tagline" style={{ fontSize: '1.1rem', marginBottom: '36px', color: 'rgba(255,255,255,0.7)', maxWidth: '600px', margin: '0 auto 36px auto' }}>
                 Join the FARE network and turn your real estate experience into industry-wide influence. We handle the systems, you bring the expertise.
               </p>
-              
+
               <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
                 <button onClick={() => setIsModalOpen(true)} className="btn-gold btn-sm" style={{ padding: '12px 32px' }}>Apply as Trainer</button>
                 <button onClick={() => setIsModalOpen(true)} className="btn-ghost btn-sm" style={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', padding: '12px 32px' }}>Book a Discussion Call</button>
@@ -467,7 +517,7 @@ const TrainerPage = () => {
 
         <ApplyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
-    </div>
+    </div >
   );
 };
 

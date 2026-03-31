@@ -36,6 +36,31 @@
   border-radius: 2px;
 }
 
+.category-title.text-center {
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.category-title.text-center:before {
+  display: none;
+}
+
+.category-subtitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold-accent);
+  background: rgba(180, 83, 9, 0.08);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-left: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid rgba(180, 83, 9, 0.15);
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
 /* Base list card from CoursesPage */
 .course-list-card {
   background: #ffffff;
@@ -147,6 +172,72 @@
   margin-top: 2px;
 }
 
+/* Variations for visual distinction (Synced with TrainerPage) */
+.course-list-card.glass-teal {
+  background: rgba(13, 148, 136, 0.02);
+  border: 1px solid rgba(13, 148, 136, 0.15);
+}
+
+.course-list-card.glass-teal:hover {
+  background: #ffffff;
+}
+
+.course-list-card.solid-deep {
+  background: var(--primary-deep);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white !important;
+}
+
+.course-list-card.solid-deep .clc-title {
+  color: white;
+}
+
+.course-list-card.solid-deep .clc-tagline,
+.course-list-card.solid-deep .clc-highlight-item {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.course-list-card.solid-deep:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.2);
+  border-color: var(--gold-accent);
+}
+
+.course-list-card:hover .clc-icon-wrap {
+  background: var(--gold-accent);
+  color: var(--bg-deep);
+  border-color: transparent;
+}
+
+/* Banner Styling (Synced with TrainerPage) */
+.fit-banner {
+  margin: 15px 0 20px;
+  padding: 16px 24px;
+  background: linear-gradient(90deg, var(--primary-deep) 0%, #1e293b 100%);
+  color: white;
+  border-radius: 16px;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.fit-banner p {
+  margin: 0;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--gold-accent);
+  letter-spacing: 0.5px;
+}
+
+.fit-banner-icon {
+  color: var(--gold-accent);
+  filter: drop-shadow(0 0 5px var(--gold-accent));
+}
+
 /* Grids */
 .course-all-grid {
   display: grid;
@@ -224,48 +315,136 @@
   flex-wrap: wrap;
 }
 
-/* Pathway Styling */
+/* Pathway Styling - Redesigned as a visual journey */
 .pathway-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  padding: 40px 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Connecting line across nodes */
+.pathway-grid:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  right: 50px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.06);
+  z-index: 0;
+  transform: translateY(-50%);
 }
 
 .path-node-card {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 30px 20px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-  transition: 0.3s;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  transition: transform 0.4s ease;
 }
 
 .path-node-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--primary-accent);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  transform: translateY(-10px);
 }
 
-.pn-number {
-  width: 48px;
-  height: 48px;
-  background: var(--gold-glow);
-  color: var(--gold-accent);
-  font-weight: 700;
+.pn-icon-circle {
+  width: 70px;
+  height: 70px;
+  background: #ffffff;
+  border: 4px solid #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 16px;
-  font-size: 1.2rem;
+  color: var(--primary-accent);
+  position: relative;
+  transition: all 0.4s ease;
+  z-index: 2;
 }
 
-.pn-title {
-  font-weight: 600;
-  font-size: 1.15rem;
+.path-node-card:hover .pn-icon-circle {
+  background: var(--gold-accent);
+  color: white;
+  box-shadow: 0 15px 35px rgba(180, 83, 9, 0.25);
+  border-color: rgba(180, 83, 9, 0.1);
+}
+
+/* Pulse effect for the node */
+.pn-icon-circle:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--gold-accent);
+  border-radius: 50%;
+  animation: pulse-node 2s infinite;
+  opacity: 0;
+}
+
+.path-node-card:hover .pn-icon-circle:after {
+  opacity: 1;
+}
+
+@keyframes pulse-node {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.pn-label {
+  font-weight: 700;
+  font-size: 1.1rem;
   color: var(--text-main);
   font-family: "Outfit", sans-serif;
+  text-align: center;
+  letter-spacing: -0.3px;
+}
+
+.pn-step-badge {
+  position: absolute;
+  top: -12px;
+  right: -5px;
+  background: var(--primary-deep);
+  color: white;
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 800;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 992px) {
+  .pathway-grid {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 60px;
+    gap: 40px;
+  }
+  .pathway-grid:before {
+    top: 50px;
+    bottom: 50px;
+    left: 45px;
+    width: 2px;
+    height: auto;
+    transform: none;
+  }
+  .path-node-card {
+    flex-direction: row;
+    width: 100%;
+    gap: 24px;
+    text-align: left;
+  }
+  .pn-label {
+    text-align: left;
+    font-size: 1.25rem;
+  }
 }
 
 @media (max-width: 992px) {
@@ -284,6 +463,21 @@
   }
   .course-all-grid {
     grid-template-columns: 1fr;
+  }
+  .category-title {
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+    font-size: 2rem;
+  }
+  .category-subtitle {
+    margin-left: 0;
+    font-size: 0.9rem;
+    padding: 4px 12px;
+  }
+  .fit-banner {
+    margin: 20px 0 30px;
+    padding: 14px 20px;
   }
   .syllabus-cta-modern {
     padding: 60px 24px;

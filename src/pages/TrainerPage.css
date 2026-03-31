@@ -237,8 +237,179 @@
 
 .expectation-split-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 40px;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.competition-layout {
+  padding: 80px 0;
+  position: relative;
+}
+
+.vs-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  width: 120px;
+  position: relative;
+}
+
+.offers-card,
+.expects-card {
+  padding: 40px 48px !important;
+}
+
+.vs-badge {
+  width: 80px;
+  height: 80px;
+  background: var(--bg-deep);
+  border: 2px solid var(--gold-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--gold-accent);
+  box-shadow:
+    0 0 30px rgba(180, 83, 9, 0.3),
+    inset 0 0 15px rgba(180, 83, 9, 0.2);
+  position: relative;
+}
+
+.vs-badge::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  border: 1px dashed rgba(180, 83, 9, 0.3);
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.side-badge {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 6px 16px;
+  border-radius: 100px;
+}
+
+.side-badge.left {
+  background: rgba(13, 148, 136, 0.1);
+  color: var(--primary-accent);
+  border: 1px solid rgba(13, 148, 136, 0.2);
+}
+
+.side-badge.right {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--gold-accent);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.competition-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px 24px;
+  margin-top: 20px;
+}
+
+.competition-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 1rem;
+}
+
+.competition-item.light {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot.primary {
+  background: var(--primary-accent);
+  box-shadow: 0 0 10px var(--primary-accent);
+}
+
+.dot.gold {
+  background: var(--gold-accent);
+  box-shadow: 0 0 10px var(--gold-accent);
+}
+
+.offers-card {
+  border-left: 5px solid var(--primary-accent) !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%) !important;
+}
+
+.expects-card {
+  border-right: 5px solid var(--gold-accent) !important;
+  background: linear-gradient(
+    135deg,
+    var(--primary-deep) 0%,
+    #0f172a 100%
+  ) !important;
+}
+
+/* Responsive Overrides */
+@media (max-width: 992px) {
+  .expectation-split-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .vs-container {
+    height: 60px;
+    margin: -30px auto;
+    width: 60px;
+  }
+  .vs-badge {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+  }
+  .offers-card,
+  .expects-card {
+    padding: 32px 24px !important;
+  }
+  .side-badge {
+    position: static;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .fit-banner {
+    margin: 20px 0 30px;
+    padding: 14px 20px;
+  }
 }
 
 /* Modern Glowing Blocks (from Courses Syllabus CTA) */
@@ -289,10 +460,38 @@
   font-size: 1.15rem;
   color: var(--text-muted);
   max-width: 640px;
-  margin: 0 auto 40px;
+  margin: 0 auto 30px;
   line-height: 1.7;
   position: relative;
   z-index: 1;
+}
+
+.fit-banner {
+  margin: 15px 0 20px;
+  padding: 16px 24px;
+  background: linear-gradient(90deg, var(--primary-deep) 0%, #1e293b 100%);
+  color: white;
+  border-radius: 16px;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.fit-banner p {
+  margin: 0;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--gold-accent);
+  letter-spacing: 0.5px;
+}
+
+.fit-banner-icon {
+  color: var(--gold-accent);
+  filter: drop-shadow(0 0 5px var(--gold-accent));
 }
 
 .cta-action-row {
