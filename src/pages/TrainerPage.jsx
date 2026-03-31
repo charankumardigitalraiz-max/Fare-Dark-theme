@@ -1,356 +1,472 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Users, 
-  Briefcase, 
-  Map, 
-  Globe, 
-  MessageSquare,
-  ChevronRight,
-  TrendingUp,
-  Award,
-  BookOpen,
-  PieChart,
-  Lightbulb,
-  Target,
-  CheckCircle
+import {
+  Users, Briefcase, Map, Globe, MessageSquare, ChevronRight,
+  TrendingUp, Award, BookOpen, PieChart, Lightbulb, Target,
+  CheckCircle, Building, Activity, UserCheck, MapPin, ShieldCheck, Zap
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ApplyModal from '../components/ApplyModal';
 import './TrainerPage.css';
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+const ExpandableImpactCard = ({ block, idx }) => {
+  const [expanded, setExpanded] = useState(false);
+  const visibleTopics = expanded ? block.topics : block.topics.slice(0, 2);
+  const hasMore = block.topics.length > 2;
+
+  return (
+    <motion.div
+      key={idx}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: idx * 0.1, duration: 0.5 }}
+      className="course-list-card"
+    >
+      <div className="clc-header">
+        <div className="clc-icon-wrap">{block.icon}</div>
+      </div>
+      <h3 className="clc-title">{block.title}</h3>
+      <span className="clc-tagline" style={{ display: 'block', marginBottom: '5px' }}>({block.desc})</span>
+      <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column' }}>
+        <ul className="clc-highlights">
+          {visibleTopics.map((t, i) => (
+            <li key={i} className="clc-highlight-item">
+              <ChevronRight size={14} />
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+        {hasMore && (
+          <button
+            onClick={() => setExpanded(!expanded)}
+            style={{
+              background: 'none', border: 'none', color: 'var(--primary-accent)',
+              fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer',
+              textAlign: 'left', padding: '12px 0 0 0', marginTop: '4px'
+            }}
+          >
+            {expanded ? '- View Less' : `+ ${block.topics.length - 2} More Topics`}
+          </button>
+        )}
+      </div>
+    </motion.div>
+  );
 };
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 }
-  }
-};
+const ExpandableCollabCard = ({ fmt, idx }) => {
+  const [expanded, setExpanded] = useState(false);
+  const visibleExamples = expanded ? fmt.examples : fmt.examples.slice(0, 2);
+  const hasMore = fmt.examples.length > 2;
 
-const collaborationFormats = [
-  {
-    title: "Workshops",
-    audience: "Awareness & Skill Enhancement",
-    duration: "2 - 6 hours",
-    ideal: "Awareness & quick insights",
-    examples: ["Intro to Real Estate Sales", "Meta Ads for RE", "WhatsApp Automation Basics"],
-    icon: Lightbulb,
-    color: "linear-gradient(135deg, #0ea5e9, #06b6d4)"
-  },
-  {
-    title: "Bootcamps",
-    audience: "Skill Enhancement & Up-Skilling",
-    duration: "12 - 18 hours",
-    ideal: "Practical skill improvement",
-    examples: ["Negotiation & Objection Handling", "Project Pitching Mastery"],
-    icon: TrendingUp,
-    color: "linear-gradient(135deg, #10b981, #059669)"
-  },
-  {
-    title: "Courses",
-    audience: "Freshers & Career-focused learners",
-    duration: "50 - 60 hours",
-    ideal: "Career Transformation",
-    examples: ["Real Estate Placement Program", "Specialized Luxury Sales"],
-    icon: BookOpen,
-    color: "linear-gradient(135deg, #f59e0b, #d97706)"
-  },
-  {
-    title: "Mentorship",
-    audience: "Mid to senior professionals",
-    duration: "3 - 6 months",
-    ideal: "Leadership & autonomous growth",
-    examples: ["Sales Leadership Mentorship", "Freelancer & Partner Growth Program"],
-    icon: Users,
-    color: "linear-gradient(135deg, #e11d48, #be123c)"
-  }
-];
+  return (
+    <motion.div
+      key={idx}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="course-list-card"
+    >
+      <div className="clc-header">
+        <div className="clc-icon-wrap">{fmt.icon}</div>
+        <div className="clc-meta">
+          <span className="clc-level-tag">{fmt.duration}</span>
+          <span className="clc-module-tag">Format</span>
+        </div>
+      </div>
+      <h3 className="clc-title" style={{ fontSize: '1.4rem' }}>{fmt.title}</h3>
+
+      <div style={{ marginTop: '3px', marginBottom: '5px' }}>
+        <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700, marginBottom: '4px' }}>Audience</div>
+        <div style={{ fontWeight: 600, color: 'var(--primary-accent)' }}>{fmt.audience}</div>
+
+        <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700, marginTop: '12px', marginBottom: '4px' }}>Ideal For</div>
+        <div style={{ fontWeight: 500, color: 'var(--text-main)' }}>{fmt.ideal}</div>
+      </div>
+
+      <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column' }}>
+        <ul className="clc-highlights" style={{ marginTop: 0 }}>
+          {visibleExamples.map((ex, i) => (
+            <li key={i} className="clc-highlight-item">
+              <CheckCircle size={14} />
+              <span>{ex}</span>
+            </li>
+          ))}
+        </ul>
+        {hasMore && (
+          <button
+            onClick={() => setExpanded(!expanded)}
+            style={{
+              background: 'none', border: 'none', color: 'var(--primary-accent)',
+              fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer',
+              textAlign: 'left', padding: '12px 0 0 0', marginTop: '4px'
+            }}
+          >
+            {expanded ? '- View Less' : `+ ${fmt.examples.length - 2} More Topics`}
+          </button>
+        )}
+      </div>
+    </motion.div>
+  );
+};
 
 const TrainerPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <div className="landing-page" style={{ padding: 0 }}>
-      {/* Hero Section */}
-      <section className="trainer-hero">
-        <div className="trainer-hero-bg"></div>
-        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-            <motion.div initial="hidden" animate="visible" variants={fadeIn} style={{ maxWidth: '900px', margin: '0 auto' }}>
-              <div className="modern-badge" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.2)', background: 'var(--primary-accent)' }}>FARE Trainers & Mentors</div>
-              <h1 className="modules-title mx-auto" style={{ color: 'white' }}>
-                Turn Your Expertise into <br />
-                <span className="modern-text-gradient" style={{ paddingRight: 0 }}>
-                   Influence & Authority
-                </span>
-              </h1>
-              <p className="modules-subtitle mx-auto" style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '750px', marginBottom: '40px', fontSize: '1.1rem' }}>
-                Build your presence as a trainer, mentor, or knowledge partner with FARE — and create meaningful impact across the real estate ecosystem.
-              </p>
-              
-              <div className="hero-buttons">
-                <Link to="/contact" className="btn-gold" style={{ padding: '14px 32px', minWidth: '180px', display: 'inline-flex', justifyContent: 'center' }}>
-                  Apply as Trainer
-                </Link>
-                <Link to="/contact" className="btn-premium" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', padding: '14px 32px', color: 'white', minWidth: '180px', display: 'inline-flex', justifyContent: 'center' }}>
-                   Partner with FARE
-                </Link>
-              </div>
-            </motion.div>
-        </div>
-      </section>
+    <div className="trainer-page">
+      <div className="container">
 
-      {/* Who Is It For Grid */}
-      <section className="who-section section-padding">
-        <div className="container">
-          <div className="modules-header">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="modern-badge">
-              Target Audience
-            </motion.div>
-            <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="modules-title">
-              Who Is It <span className="modern-text-gradient">For?</span>
-            </motion.h2>
-            <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="modules-subtitle">
-              Built for Professionals Ready to Teach, Scale & Lead.
-            </motion.p>
+        {/* 1. Hero Section */}
+        <header className="courses-hero">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="modern-badge"
+          >
+            FARE Trainers & Mentors
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="luxury-title text-4xl mb-8"
+          >
+            Turn Your Real Estate Experience into <br />
+            <span className="modern-text-gradient">Influence, Impact & Authority</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-text-muted max-w-3xl mx-auto text-lg mb-12"
+          >
+            Build your presence as a trainer, mentor, or knowledge partner with FARE — and create meaningful impact across the real estate ecosystem. Deliver workshops, lead bootcamps, or launch co-branded programs aligned to real industry needs.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}
+          >
+            <button onClick={() => setIsModalOpen(true)} className="btn-gold">Apply as Trainer</button>
+            <button onClick={() => setIsModalOpen(true)} className="btn-ghost" style={{ border: '1px solid rgba(0,0,0,0.1)' }}>Partner with FARE</button>
+          </motion.div>
+        </header>
+
+        {/* 2. Who Is It For */}
+        <section className="category-section">
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '40px', textAlign: 'center' }}>
+            <span className="modern-badge" style={{ marginBottom: '16px' }}>Target Audience</span>
+            <h2 className="category-title text-center" style={{ marginBottom: '16px', justifyContent: 'center' }}>
+              Who Is It<span className="modern-text-gradient" style={{ paddingRight: 0 }}>For?</span>
+            </h2>
+            <p className="text-text-muted mx-auto" style={{ maxWidth: '600px' }}>
+              Built for Professionals Ready to Teach, Scale & Lead
+            </p>
           </div>
-          
-          <div className="who-grid">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="who-card">
-              <div className="who-icon">
-                <Briefcase size={26} />
-              </div>
-              <h3>Real Estate Experts</h3>
-              <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.6 }}>(Sales, CRM, Banking, Legal) <br/> Turn your experience into structured training and industry influence.</p>
-            </motion.div>
-            
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="who-card">
-              <div className="who-icon">
-                <Award size={26} />
-              </div>
-              <h3>Trainers & Coaches</h3>
-              <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.6 }}>Launch and scale co-branded programs with FARE and exponentially expand your reach.</p>
-            </motion.div>
 
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="who-card">
-              <div className="who-icon">
-                <Map size={26} />
-              </div>
-              <h3>Freelance Realtors</h3>
-              <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.6 }}>(Residential, Commercial, Open Plot) <br/> Convert your deal experience into training and build your network.</p>
-            </motion.div>
-
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="who-card span-2" style={{ gridColumn: 'span 1' }}>
-              <div className="who-icon">
-                <Globe size={26} />
-              </div>
-              <div>
-                 <h3>Digital Experts</h3>
-                 <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.6 }}>(Marketers, Influencers) <br/> Turn digital expertise into training that improves campaign ROI.</p>
-              </div>
-            </motion.div>
-
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="who-card span-2">
-              <div className="who-icon" style={{ flexShrink: 0 }}>
-                <MessageSquare size={28} />
-              </div>
-              <div>
-                <h3>Soft Skills Trainers</h3>
-                <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.6 }}>(English for Real Estate) <br/> Apply your skills to real estate and improve client communication & conversion rates.</p>
-              </div>
-            </motion.div>
+          <div className="course-all-grid grid-5-cols">
+            {[
+              { title: "Experienced Real Estate Professionals", tag: "(Sales, CRM, Banking, Legal)", desc: "Turn your experience into structured training and industry influence.", icon: <Briefcase size={20} /> },
+              { title: "Existing Trainers & Coaches", tag: "Co-Branded Programs", desc: "Launch and scale co-branded programs with FARE and expand your reach.", icon: <Award size={20} /> },
+              { title: "Freelance Realtors & Partners", tag: "(Residential, Commercial, Open Plot)", desc: "Convert your deal experience into training and build your network.", icon: <Map size={20} /> },
+              { title: "Digital Media Experts", tag: "(Performance Marketers, Influencers)", desc: "Turn your digital expertise into training that improves campaign ROI and builds brands.", icon: <Globe size={20} /> },
+              { title: "Communication Trainers", tag: "(Soft Skills & English for Real Estate)", desc: "Apply your skills to real estate and improve client communication & conversion.", icon: <MessageSquare size={20} /> }
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                className="course-list-card"
+              >
+                <div className="clc-header">
+                  <div className="clc-icon-wrap">{item.icon}</div>
+                </div>
+                <h3 className="clc-title">{item.title}</h3>
+                <span className="clc-module-tag" style={{ display: 'block', marginBottom: '8px', color: 'var(--primary-accent)' }}>{item.tag}</span>
+                <p className="clc-tagline" style={{ flexGrow: 1 }}>{item.desc}</p>
+              </motion.div>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* About FARE Split */}
-      <section className="about-split section-padding">
-        <div className="container">
-          <div className="about-grid">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
-              <div className="modern-badge">The Academy</div>
-              <h2 className="modules-title" style={{ marginBottom: '10px' }}>
-                About <span className="modern-text-gradient">FARE</span>
-              </h2>
-              <div className="about-subtitle" style={{ fontSize: '1rem', marginBottom: '32px' }}>Finishing Academy for Real Estate</div>
-              
-              <p className="text-muted" style={{ fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '32px' }}>
+        {/* 3. About FARE */}
+        <section className="category-section">
+          <div className="info-row-grid">
+            <div>
+              <h2 className="category-title">About FARE</h2>
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: 'var(--gold-accent)', marginBottom: '24px' }}>
+                Finishing Academy for Real Estate
+              </h3>
+              <p className="clc-tagline" style={{ fontSize: '1.1rem', marginBottom: '32px' }}>
                 FARE aims to empower real estate professionals to improve productivity, close more effectively, and scale their careers across both salaried roles and freelance models.
               </p>
-              
-              <div className="about-focus-box">
-                  <h4 style={{ fontSize: '1.15rem', color: 'var(--text-main)', fontWeight: 600, marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '12px', fontFamily: 'Outfit, sans-serif' }}>
-                    <TrendingUp style={{ color: 'var(--primary-accent)' }}/> Why This Matters for You
-                  </h4>
-                  <ul style={{ listStyle: 'none' }}>
-                    {["Turn your experience into structured training.", "Deliver programs aligned to real industry needs.", "Reach and impact a wider professional audience."].map((item, i) => (
-                      <li key={i} style={{ display: 'flex', gap: '16px', marginBottom: '16px', color: 'var(--text-main)', fontWeight: 500, fontSize: '0.95rem', alignItems: 'center' }}>
-                        <CheckCircle style={{ color: 'var(--primary-accent)', flexShrink: 0 }} size={20}/> {item}
-                      </li>
-                    ))}
-                  </ul>
+
+              <div style={{ marginBottom: '32px' }}>
+                <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '16px', color: 'var(--text-main)' }}>🎯 Our Focus</h4>
+                <ul className="clc-highlights" style={{ border: 'none', padding: 0 }}>
+                  {[
+                    "Aligning skills to real-world roles and sales processes",
+                    "Enabling professionals to continuously upskill and perform better",
+                    "Creating pathways for experts to share and scale their knowledge"
+                  ].map((text, i) => (
+                    <li key={i} className="clc-highlight-item" style={{ fontSize: '1.05rem', color: 'var(--text-main)', fontWeight: 500 }}>
+                      <CheckCircle size={18} style={{ marginTop: 0 }} />
+                      <span>{text}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="about-quote">
-                  "From experience to expertise. <span className="modern-text-gradient" style={{ color: 'var(--gold-accent)', WebkitTextFillColor: 'var(--gold-accent)' }}>From expertise to impact.</span>"
+              <div>
+                <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '16px', color: 'var(--text-main)' }}>🚀 Why This Matters for You</h4>
+                <ul className="clc-highlights" style={{ border: 'none', padding: 0 }}>
+                  {[
+                    "Turn your experience into structured training",
+                    "Deliver programs aligned to real industry needs",
+                    "Reach and impact a wider professional audience"
+                  ].map((text, i) => (
+                    <li key={i} className="clc-highlight-item" style={{ fontSize: '1.05rem', color: 'var(--text-main)', fontWeight: 500 }}>
+                      <CheckCircle size={18} style={{ marginTop: 0 }} />
+                      <span>{text}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </motion.div>
 
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} style={{ position: 'relative', height: '600px', borderRadius: '32px', overflow: 'hidden', boxShadow: '0 40px 80px rgba(15,23,42,0.1)' }}>
-              <img src="/training-session-new.png" alt="Training Session" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '50%', background: 'linear-gradient(to top, var(--primary-deep), transparent)' }}></div>
-              <div style={{ position: 'absolute', bottom: '40px', left: '40px', right: '40px', background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.2)', padding: '32px', borderRadius: '24px', display: 'flex', alignItems: 'center', gap: '24px', color: 'white' }}>
-                <div style={{ width: '60px', height: '60px', background: 'var(--gold-gradient)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-deep)' }}>
-                  <PieChart size={32} />
+              <div style={{ marginTop: '40px', padding: '24px', background: 'var(--primary-deep)', color: 'white', borderRadius: '16px' }}>
+                <p style={{ fontSize: '1.2rem', fontWeight: 700 }}>
+                  From experience to expertise. <span style={{ color: 'var(--gold-accent)' }}>From expertise to impact.</span>
+                </p>
+              </div>
+            </div>
+
+            <div className="about-visual-box">
+              <img src="/training-session-new.png" alt="FARE Training Environment" />
+              <div className="about-visual-overlay"></div>
+              <div className="about-visual-float">
+                <div className="about-float-icon">
+                  <PieChart size={28} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '1.8rem', fontWeight: 700, lineHeight: 1 }}>100+</div>
-                  <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'rgba(255,255,255,0.8)', fontWeight: 600, marginTop: '4px' }}>Workshop Topics</div>
+                  <div style={{ fontSize: '1.8rem', fontWeight: 700 }}>100+</div>
+                  <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Curated Topics</div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. Areas Where You Can Make a Difference */}
+        <section className="category-section">
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '40px', textAlign: 'center' }}>
+            <span className="modern-badge" style={{ marginBottom: '16px' }}>Impact Areas</span>
+            <h2 className="category-title text-center" style={{ marginBottom: '16px', justifyContent: 'center' }}>
+              Make a<span className="modern-text-gradient" style={{ paddingRight: 0 }}>Difference</span>
+            </h2>
+            <p className="text-text-muted mx-auto" style={{ maxWidth: '600px' }}>
+              Contribute Across the Real Estate Funnel
+            </p>
+          </div>
+
+          <div className="course-all-grid" style={{ marginBottom: '40px' }}>
+            {[
+              { title: "Lead Generation", desc: "Create demand and generate quality enquiries", icon: <Globe size={20} />, topics: ["Performance Marketing (Meta & Google Ads)", "WhatsApp Automation & Lead Funnels", "Property Portals & Inbound Systems"] },
+              { title: "Pre-Sales", desc: "Convert enquiries into qualified site visits", icon: <UserCheck size={20} />, topics: ["Lead Qualification & Nurturing", "CRM Workflows & Follow-ups", "Inside Sales Systems"] },
+              { title: "Sales", desc: "Drive conversions and close deals", icon: <Briefcase size={20} />, topics: ["High-Rise Project Sales", "Luxury Property Advisory", "Project Pitching & Client Handling", "Negotiation & Closing"] },
+              { title: "Revenue", desc: "Secure collections and manage relationships", icon: <TrendingUp size={20} />, topics: ["Payment Follow-Up Systems", "Conflict Resolution", "Post-Sales Customer Handling"] },
+              { title: "Career & Freelancing", desc: "Enable independent growth and income", icon: <Activity size={20} />, topics: ["Freelancer & Channel Partner Models", "Personal Branding for Realtors", "Business Development for Agents"] }
+            ].map((block, idx) => (
+              <ExpandableImpactCard key={idx} block={block} idx={idx} />
+            ))}
+          </div>
+
+          {/* Capability Layers */}
+          <h3 className="text-center" style={{ fontSize: '1.8rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '30px' }}>Capability Layers</h3>
+          <div className="course-all-grid">
+            {[
+              { title: "Communication & Conversion", icon: <MessageSquare size={20} />, topics: ["English for Real Estate", "Client Conversations & Presentation", "Objection Handling & Closing"] },
+              { title: "Cross-Functional Expertise", icon: <ShieldCheck size={20} />, topics: ["Legal & Documentation", "Home Loans & Financing", "CRM & Operational Processes"] },
+              { title: "Specialty Sales Tracks", icon: <Award size={20} />, topics: ["Luxury Real Estate", "High-Rise Sales", "Plots, Land & Investment Sales"] }
+            ].map((layer, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="course-list-card glass-teal"
+              >
+                <div className="clc-header">
+                  <div className="clc-icon-wrap" style={{ background: 'rgba(13, 148, 136, 0.1)', borderColor: 'rgba(13, 148, 136, 0.2)' }}>{layer.icon}</div>
+                </div>
+                <h3 className="clc-title">{layer.title}</h3>
+                <ul className="clc-highlights">
+                  {layer.topics.map((t, i) => (
+                    <li key={i} className="clc-highlight-item">
+                      <ChevronRight size={14} />
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* 5. Ways to Collaborate */}
+        <section className="category-section">
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '40px', textAlign: 'center' }}>
+            <span className="modern-badge" style={{ marginBottom: '16px' }}>Delivery Formats</span>
+            <h2 className="category-title text-center" style={{ marginBottom: '16px', justifyContent: 'center' }}>
+              Ways to<span className="modern-text-gradient" style={{ padding: "0px", margin: "0px", paddingRight: 0 }}>Collaborate</span>
+            </h2>
+            <p className="text-text-muted mx-auto" style={{ maxWidth: '600px' }}>
+              Choose the Format Based on the Impact You Want to Create
+            </p>
+          </div>
+
+          <div className="course-all-grid">
+            {[
+              { title: "Workshops", icon: <Lightbulb size={20} />, audience: "Awareness + Skill Enhancement", duration: "2 to 6 hours", ideal: "Awareness & quick insights", examples: ["Introduction to Real Estate Sales", "Meta Ads for Real Estate", "WhatsApp Automation Basics"] },
+              { title: "Bootcamps", icon: <Zap size={20} />, audience: "Skill Enhancement + Up/Cross Skill", duration: "12 to 18 hours", ideal: "Practical skill improvement", examples: ["Negotiation & Objection Handling", "Project Pitching Mastery", "Lead Follow-Up Systems"] },
+              { title: "Courses", icon: <BookOpen size={20} />, audience: "Freshers & Career-focused learners", duration: "50 to 60 hours", ideal: "Transformation", examples: ["Real Estate Placement Program", "Specialized Sales"] },
+              { title: "Mentorship", icon: <Users size={20} />, audience: "Mid to senior professionals", duration: "3 to 6 months", ideal: "Leadership & growth", examples: ["Sales Leadership Mentorship", "Freelancer Growth Program"] }
+            ].map((fmt, idx) => (
+              <ExpandableCollabCard key={idx} fmt={fmt} idx={idx} />
+            ))}
+          </div>
+        </section>
+
+        {/* 6. Corporate Office (Info Block) */}
+        <section className="category-section">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="course-list-card solid-deep"
+            style={{ padding: '24px 32px', alignItems: 'center', textAlign: 'center', maxWidth: '750px', margin: '0 auto' }}
+          >
+            <div className="clc-icon-wrap" style={{ width: '40px', height: '40px', background: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.2)', color: 'var(--gold-accent)' }}>
+              <Building size={20} />
+            </div>
+            <h3 className="clc-title" style={{ fontSize: '1.5rem', marginTop: '12px', marginBottom: '4px' }}>Our Corporate Office</h3>
+            <p className="clc-tagline" style={{ fontSize: '0.95rem', marginBottom: '20px' }}>Based in Hyderabad — Connected with active real estate markets</p>
+
+            <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
+              {["Industry exposure", "Real project alignment", "Hybrid opportunities"].map((v, i) => (
+                <div key={i} style={{ display: 'flex', gap: '6px', alignItems: 'center', fontWeight: 600, fontSize: '0.9rem' }}>
+                  <CheckCircle size={16} style={{ color: 'var(--gold-accent)' }} /> <span>{v}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </section>
+
+        {/* 8. WHAT FARE OFFERS VS EXPECTS */}
+        <section className="category-section">
+          <div className="expectation-split-grid">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="course-list-card" style={{ padding: '24px 32px' }}>
+              <h3 className="clc-title" style={{ fontSize: '1.4rem', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                <CheckCircle size={24} style={{ color: 'var(--primary-accent)' }} /> What FARE Offers
+              </h3>
+              <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px 16px' }}>
+                {["Structured ecosystem", "Ready frameworks", "Lead generation support", "Sales handled by FARE", "Brand building", "Scaling opportunities"].map((item, i) => (
+                  <li key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', fontWeight: '600', color: 'var(--text-main)', fontSize: '0.95rem' }}>
+                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary-accent)', flexShrink: 0, marginTop: '6px' }}></div>
+                    <span style={{ lineHeight: 1.4 }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="course-list-card solid-deep" style={{ padding: '24px 32px' }}>
+              <h3 className="clc-title" style={{ fontSize: '1.4rem', display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px', color: 'white' }}>
+                <Target size={24} style={{ color: 'var(--gold-accent)' }} /> What We Expect
+              </h3>
+              <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px 16px' }}>
+                {["Practical expertise", "Teaching ability", "Professional commitment", "Alignment with FARE structure", "Focus on outcomes"].map((item, i) => (
+                  <li key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', fontWeight: '500', color: 'rgba(255,255,255,0.9)', fontSize: '0.95rem' }}>
+                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--gold-accent)', flexShrink: 0, marginTop: '6px' }}></div>
+                    <span style={{ lineHeight: 1.4 }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Areas of Difference */}
-      <section className="section-padding" style={{ background: 'var(--bg-deep)' }}>
-         <div className="container">
-           <div className="modules-header">
-             <div className="modern-badge">Impact Areas</div>
-             <h2 className="modules-title">Make a <span className="modern-text-gradient">Difference</span></h2>
-             <p className="modules-subtitle">Contribute Across the Real Estate Funnel</p>
-           </div>
+        {/* 6. TOPIC TEASER + CTA */}
+        <section className="syllabus-cta-section">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="syllabus-cta-modern"
+          >
+            <div className="cta-glow"></div>
+            <h2 className="cta-title">100+ Topics Across the <span className="gold-text">Real Estate Funnel</span></h2>
+            <p className="cta-description">
+              FARE offers a curated library of workshops, bootcamps, and structured programs aligned to real-world roles and outcomes in real estate. Let's find where you fit.
+            </p>
 
-           <div className="difference-grid">
-               {[
-                 { title: "Lead Generation", desc: "Create demand and generate quality enquiries", topics: ["Performance Marketing", "WhatsApp Automation", "Property Portals"], icon: Globe },
-                 { title: "Pre-Sales", desc: "Convert enquiries into qualified site visits", topics: ["Lead Qualification", "CRM Workflows", "Inside Sales"], icon: MessageSquare },
-                 { title: "Sales", desc: "Drive conversions and close deals", topics: ["High-Rise Sales", "Luxury Property", "Negotiation & Closing"], icon: Briefcase },
-                 { title: "Revenue", desc: "Secure collections & manage relationships", topics: ["Payment Follow-Up", "Conflict Resolution", "Post-Sales Handling"], icon: TrendingUp },
-               ].map((block, idx) => (
-                 <motion.div key={idx} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="diff-card">
-                   <div className="who-icon" style={{ width: '48px', height: '48px', marginBottom: '20px' }}>
-                     <block.icon size={24} />
-                   </div>
-                   <h3 style={{ fontSize: '1.15rem', color: 'var(--text-main)', fontWeight: 600, marginBottom: '10px' }}>{block.title}</h3>
-                   <p style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '20px', paddingBottom: '16px', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>({block.desc})</p>
-                   <ul style={{ listStyle: 'none', marginTop: 'auto' }}>
-                     {block.topics.map((t, i) => (
-                       <li key={i} style={{ fontSize: '0.9rem', color: 'var(--text-main)', marginBottom: '10px', display: 'flex', gap: '12px', alignItems: 'center' }}>
-                          <ChevronRight size={16} style={{ color: 'var(--primary-accent)', opacity: 0.6 }}/> {t}
-                       </li>
-                     ))}
-                   </ul>
-                 </motion.div>
-               ))}
-           </div>
-         </div>
-      </section>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center', marginBottom: '40px', position: 'relative', zIndex: 1 }}>
+              {[
+                "Lead Generation", "Pre-Sales & CRM", "Negotiation & Closing",
+                "Revenue & Collections", "Freelancing & Branding", "Cross-Functional"
+              ].map((text, i) => (
+                <div key={i} style={{ background: 'rgba(13, 148, 136, 0.05)', padding: '8px 20px', borderRadius: '100px', fontWeight: 600, color: 'var(--primary-accent)', fontSize: '0.9rem', border: '1px solid rgba(13, 148, 136, 0.15)' }}>
+                  {text}
+                </div>
+              ))}
+            </div>
 
-      {/* Collaboration Modes */}
-      <section className="collab-section section-padding">
-        <div className="container">
-          <div className="modules-header">
-             <div className="modern-badge">Engagement Models</div>
-             <h2 className="modules-title">Ways to <span className="modern-text-gradient">Collaborate</span></h2>
-             <p className="modules-subtitle">Choose the Format Based on the Impact You Want to Create</p>
-          </div>
-          
-          <div className="collab-grid">
-             {collaborationFormats.map((fmt, idx) => (
-               <motion.div key={idx} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="collab-card">
-                  <div className="collab-bar" style={{ background: fmt.color }}></div>
-                  <div className="collab-header">
-                     <div>
-                       <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '8px', fontFamily: 'Outfit, sans-serif' }}>{fmt.title}</h3>
-                       <p style={{ color: 'var(--primary-accent)', fontWeight: 600, fontSize: '0.85rem', letterSpacing: '1px', textTransform: 'uppercase' }}>{fmt.audience}</p>
-                     </div>
-                     <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: fmt.color, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 12px 24px rgba(0,0,0,0.1)' }}>
-                       <fmt.icon size={28} />
-                     </div>
-                  </div>
-                  
-                  <div className="collab-metrics">
-                     <div>
-                       <div className="metric-label">Duration</div>
-                       <div className="metric-val" style={{ fontSize: '1rem' }}>{fmt.duration}</div>
-                     </div>
-                     <div>
-                       <div className="metric-label">Ideal For</div>
-                       <div className="metric-val" style={{ fontSize: '1rem' }}>{fmt.ideal}</div>
-                     </div>
-                  </div>
+            <div className="cta-action-row">
+              <button onClick={() => setIsModalOpen(true)} className="btn-gold btn-sm">Request Topic List</button>
+              <button onClick={() => setIsModalOpen(true)} className="btn-ghost btn-sm" style={{ border: '1px solid rgba(0,0,0,0.1)' }}>Discuss Your Expertise</button>
+            </div>
+            <p style={{ marginTop: '20px', fontSize: '0.9rem', color: 'var(--text-muted)', position: 'relative', zIndex: 1 }}>
+              We'll share relevant topics and align you to the right programs based on your experience.
+            </p>
+          </motion.div>
+        </section>
 
-                  <div style={{ marginTop: '24px' }}>
-                     <div className="metric-label" style={{ marginBottom: '12px' }}>Topic Examples</div>
-                     <div className="collab-tags">
-                        {fmt.examples.map((ex, i) => (
-                          <span key={i} className="collab-tag">{ex}</span>
-                        ))}
-                     </div>
-                  </div>
-               </motion.div>
-             ))}
-          </div>
-        </div>
-      </section>
+        {/* 9. FINAL CTA SECTION */}
+        <section className="category-section" style={{ marginBottom: '80px' }}>
+          <motion.div 
+            className="course-list-card solid-deep" 
+            style={{ padding: '60px 40px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            {/* Background Glow Accents */}
+            <div style={{ position: 'absolute', top: '-30%', left: '-10%', width: '300px', height: '300px', background: 'var(--gold-accent)', opacity: '0.15', filter: 'blur(80px)', borderRadius: '50%', pointerEvents: 'none' }}></div>
+            <div style={{ position: 'absolute', bottom: '-30%', right: '-10%', width: '300px', height: '300px', background: 'var(--primary-accent)', opacity: '0.15', filter: 'blur(80px)', borderRadius: '50%', pointerEvents: 'none' }}></div>
 
-      {/* What FARE offers vs Expects */}
-      <section className="section-padding bg-deep">
-        <div className="container">
-          <div className="expectation-grid">
-             <div style={{ background: 'var(--bg-card)', padding: '40px', borderRadius: '32px', border: '1px solid var(--glass-border)', boxShadow: '0 20px 40px rgba(0,0,0,0.02)' }}>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '16px', color: 'var(--text-main)', fontFamily: 'Outfit, sans-serif' }}>
-                  <CheckCircle color="var(--primary-accent)" size={32}/> What FARE Offers
-                </h3>
-                <ul style={{ listStyle: 'none' }}>
-                  {["Structured ecosystem", "Ready frameworks", "Lead generation support", "Sales handled by FARE", "Brand building", "Scaling opportunities"].map((item, i) => (
-                    <li key={i} style={{ display: 'flex', gap: '16px', alignItems: 'center', fontWeight: '500', color: 'var(--text-main)', marginBottom: '16px', fontSize: '1rem' }}>
-                      <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--primary-accent)' }}></div> {item}
-                    </li>
-                  ))}
-                </ul>
-             </div>
-             
-             <div style={{ background: 'var(--primary-deep)', padding: '40px', borderRadius: '32px', color: 'white', boxShadow: '0 40px 80px rgba(15,23,42,0.2)' }}>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '16px', color: 'white', fontFamily: 'Outfit, sans-serif' }}>
-                  <Target color="var(--gold-accent)" size={32}/> What We Expect
-                </h3>
-                <ul style={{ listStyle: 'none' }}>
-                  {["Practical expertise", "Teaching ability", "Professional commitment", "Alignment with FARE structure", "Focus on outcomes"].map((item, i) => (
-                    <li key={i} style={{ display: 'flex', gap: '16px', alignItems: 'center', fontWeight: '500', color: 'rgba(255,255,255,0.85)', marginBottom: '16px', fontSize: '1rem' }}>
-                      <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--gold-accent)' }}></div> {item}
-                    </li>
-                  ))}
-                </ul>
-             </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Final CTA */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="modules-cta-wrapper">
-             <div className="cta-content">
-               <h2 className="modules-title mx-auto" style={{ marginBottom: '24px' }}>
-                 Take the <span className="modern-text-gradient">First Step</span>
-               </h2>
-               <p className="cta-text" style={{ marginBottom: '40px', fontSize: '1.1rem' }}>Request a topic list or talk to us about how your expertise fits into the FARE ecosystem.</p>
-               
-               <div className="hero-buttons">
-                 <Link to="/contact" className="btn-modern-primary" style={{ padding: '14px 32px' }}>Apply as Trainer</Link>
-                 <Link to="/contact" className="btn-premium" style={{ background: 'transparent', border: '1px solid var(--primary-accent)', color: 'var(--primary-accent)', padding: '14px 32px' }}>
-                    Book a Discussion Call
-                 </Link>
-               </div>
-             </div>
-           </div>
-        </div>
-      </section>
+            <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <span className="modern-badge" style={{ marginBottom: '20px', background: 'rgba(255,255,255,0.08)', color: 'white', borderColor: 'rgba(255,255,255,0.15)' }}>
+                Take the First Step
+              </span>
+              <h2 className="clc-title" style={{ fontSize: '2.5rem', marginBottom: '16px', color: 'white' }}>
+                Connect With Us
+              </h2>
+              <p className="clc-tagline" style={{ fontSize: '1.1rem', marginBottom: '36px', color: 'rgba(255,255,255,0.7)', maxWidth: '600px', margin: '0 auto 36px auto' }}>
+                Join the FARE network and turn your real estate experience into industry-wide influence. We handle the systems, you bring the expertise.
+              </p>
+              
+              <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
+                <button onClick={() => setIsModalOpen(true)} className="btn-gold btn-sm" style={{ padding: '12px 32px' }}>Apply as Trainer</button>
+                <button onClick={() => setIsModalOpen(true)} className="btn-ghost btn-sm" style={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', padding: '12px 32px' }}>Book a Discussion Call</button>
+              </div>
+            </div>
+          </motion.div>
+        </section>
 
+        <ApplyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      </div>
     </div>
   );
 };

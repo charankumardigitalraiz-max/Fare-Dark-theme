@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700;900&display=swap");
 
 :root {
   /* Global Modernization - Premium Light Theme */
@@ -11,7 +11,7 @@
   --gold-gradient: linear-gradient(135deg, #b45309 0%, #92400e 100%);
   --text-main: #0f172a; /* Slate 900 */
   --text-muted: #475569; /* Slate 600 */
-  --accent-glow: rgba(13, 148, 136, 0.1); 
+  --accent-glow: rgba(13, 148, 136, 0.1);
   --gold-glow: rgba(180, 83, 9, 0.15);
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(15, 23, 42, 0.1);
@@ -24,30 +24,39 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   background-color: var(--bg-deep);
   color: var(--text-main);
   line-height: 1.8;
   font-size: 1.05rem;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
   min-height: 100vh;
 }
 
-h1, h2, h3, .luxury-title {
+h1,
+h2,
+h3,
+.luxury-title {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 600;
   margin-bottom: 28px;
   color: var(--text-main);
   letter-spacing: -1px;
   line-height: 1.1;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   /* text-align: center; */
 }
 
 .institutional-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -131,7 +140,6 @@ h1, h2, h3, .luxury-title {
   }
 }
 
-
 /* Global Navigation/UI Utilities */
 .modern-badge {
   display: inline-block;
@@ -175,12 +183,18 @@ h1, h2, h3, .luxury-title {
   max-width: 42rem;
 }
 
-.mb-4 { margin-bottom: 1rem; }
-.mb-8 { margin-bottom: 2rem; }
-.mb-12 { margin-bottom: 3rem; }
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
+}
+.mb-12 {
+  margin-bottom: 3rem;
+}
 
 .luxury-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-weight: 600;
   letter-spacing: -0.5px;
   line-height: 1.2;
