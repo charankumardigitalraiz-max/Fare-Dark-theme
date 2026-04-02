@@ -26,14 +26,25 @@ const ExpandableImpactCard = ({ block, idx }) => {
       <div className="clc-header">
         <div className="clc-icon-wrap">{block.icon}</div>
       </div>
-      <h3 className="clc-title">{block.title}</h3>
-      <span className="clc-tagline" style={{ display: 'block', marginBottom: '5px' }}>({block.desc})</span>
-      <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column' }}>
+      <h3 className="clc-title" style={{ marginBottom: '6px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{block.title}</h3>
+      <div
+        className="clc-tagline"
+        title={block.desc}
+        style={{
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          marginBottom: '10px'
+        }}
+      >
+        {block.desc}
+      </div>
+      <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <ul className="clc-highlights">
           {visibleTopics.map((t, i) => (
             <li key={i} className="clc-highlight-item">
-              <ChevronRight size={14} />
-              <span>{t}</span>
+              <ChevronRight size={14} style={{ flexShrink: 0, marginTop: '2px' }} />
+              <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{t}</span>
             </li>
           ))}
         </ul>
@@ -43,7 +54,7 @@ const ExpandableImpactCard = ({ block, idx }) => {
             style={{
               background: 'none', border: 'none', color: 'var(--primary-accent)',
               fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer',
-              textAlign: 'left', padding: '12px 0 0 0', marginTop: '4px'
+              textAlign: 'left', padding: '12px 0 0 0', marginTop: 'auto'
             }}
           >
             {expanded ? '- View Less' : `+ ${block.topics.length - 2} More Topics`}
@@ -65,47 +76,52 @@ const ExpandableCollabCard = ({ fmt, idx }) => {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="course-list-card"
+      className="course-list-card glass-teal"
+      style={{ padding: '24px', display: 'flex', flexDirection: 'column', minHeight: '340px' }}
     >
-      <div className="clc-header">
-        <div className="clc-icon-wrap">{fmt.icon}</div>
-        <div className="clc-meta">
-          <span className="clc-level-tag">{fmt.duration}</span>
-          <span className="clc-module-tag">Format</span>
+      <div className="clc-header" style={{ marginBottom: '16px' }}>
+        <div className="clc-icon-wrap" style={{ background: 'white', boxShadow: '0 8px 24px rgba(13, 148, 136, 0.1)', color: 'var(--primary-accent)', width: '48px', height: '48px' }}>{fmt.icon}</div>
+        <div className="clc-meta" style={{ gap: '6px' }}>
+          <span className="clc-level-tag" style={{ background: 'rgba(13, 148, 136, 0.06)', color: 'var(--primary-accent)', fontWeight: 700, fontSize: '0.7rem' }}>{fmt.duration}</span>
+          <span className="clc-level-tag" style={{ background: 'rgba(217, 119, 6, 0.06)', color: 'var(--gold-accent)', fontWeight: 700, fontSize: '0.7rem' }}>{fmt.ideal}</span>
         </div>
       </div>
-      <h3 className="clc-title" style={{ fontSize: '1.4rem' }}>{fmt.title}</h3>
 
-      <div style={{ marginTop: '3px', marginBottom: '5px' }}>
-        <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700, marginBottom: '4px' }}>Audience</div>
-        <div style={{ fontWeight: 600, color: 'var(--primary-accent)' }}>{fmt.audience}</div>
+      <h3 className="clc-title" style={{ fontSize: '1.25rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginBottom: '8px' }}>{fmt.title}</h3>
 
-        <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700, marginTop: '12px', marginBottom: '4px' }}>Ideal For</div>
-        <div style={{ fontWeight: 500, color: 'var(--text-main)' }}>{fmt.ideal}</div>
-
-        <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 700, marginTop: '12px', marginBottom: '4px' }}>Duration</div>
-        <div style={{ fontWeight: 500, color: 'var(--text-main)' }}>{fmt.duration}</div>
+      <div style={{ marginBottom: '16px', borderRadius: '14px' }}>
+        <div style={{ fontSize: '0.7rem', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 800, marginBottom: '2px', letterSpacing: '0.5px' }}>Target Audience</div>
+        <div style={{ fontWeight: 600, color: 'var(--primary-accent)', fontSize: '0.9rem', lineHeight: '1.3' }}>{fmt.audience}</div>
       </div>
 
-      <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column' }}>
-        <ul className="clc-highlights" style={{ marginTop: 0 }}>
+      <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+        <ul className="clc-highlights" style={{ marginTop: 0, border: 'none', padding: 0 }}>
           {visibleExamples.map((ex, i) => (
-            <li key={i} className="clc-highlight-item">
-              <CheckCircle size={14} />
-              <span>{ex}</span>
+            <li key={i} className="clc-highlight-item" style={{ fontSize: '0.88rem', marginBottom: '8px', alignItems: 'center' }}>
+              <CheckCircle size={14} style={{ flexShrink: 0, color: 'var(--primary-accent)' }} />
+              <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', color: 'var(--text-main)' }}>{ex}</span>
             </li>
           ))}
         </ul>
+
         {hasMore && (
           <button
             onClick={() => setExpanded(!expanded)}
             style={{
-              background: 'none', border: 'none', color: 'var(--primary-accent)',
-              fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer',
-              textAlign: 'left', padding: '12px 0 0 0', marginTop: '4px'
+              background: 'none',
+              border: 'none',
+              color: 'var(--primary-accent)',
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              textAlign: 'left',
+              padding: '12px 0 0 0',
+              marginTop: 'auto',
+              display: 'inline-block',
+              opacity: 0.8
             }}
           >
-            {expanded ? '- View Less' : `+ ${fmt.examples.length - 2} More Topics`}
+            {expanded ? '− Show Less' : `+ ${fmt.examples.length - 2} More Topics`}
           </button>
         )}
       </div>
@@ -133,7 +149,7 @@ const TrainerPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="luxury-title text-4xl mb-8"
+            className="luxury-title text-4xl mb-4"
           >
             Turn Your Real Estate Experience into <br />
             <span className="modern-text-gradient">Influence, Impact & Authority</span>
@@ -142,7 +158,7 @@ const TrainerPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-text-muted max-w-3xl mx-auto text-lg mb-12"
+            className="text-text-muted max-w-3xl mx-auto text-lg mb-8"
           >
             Build your presence as a trainer, mentor, or knowledge partner with FARE — and create meaningful impact across the real estate ecosystem.
             <br />
@@ -167,11 +183,50 @@ const TrainerPage = () => {
           </motion.div>
         </header>
 
+        {/* Visual Image Banner */}
+        {/* <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          style={{ position: 'relative', borderRadius: '28px', overflow: 'hidden', marginBottom: '60px', height: '420px', boxShadow: '0 40px 80px rgba(15, 23, 42, 0.12)' }}
+        >
+          <img
+            src="/trainer-hero.png"
+            alt="FARE Trainer Program"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(15,23,42,0.85) 35%, rgba(15,23,42,0.15) 100%)' }} />
+          <div style={{ position: 'absolute', top: '50%', transform: 'translateY(-50%)', left: '48px', maxWidth: '500px' }}>
+            <span className="modern-badge" style={{ marginBottom: '16px', display: 'inline-block', background: 'rgba(255,255,255,0.08)', color: 'white', borderColor: 'rgba(255,255,255,0.15)' }}>
+              FARE Training Ecosystem
+            </span>
+            <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, color: 'white', fontFamily: 'Outfit, sans-serif', letterSpacing: '-0.5px', lineHeight: 1.3, marginBottom: '16px' }}>
+              Share Your Expertise. <span style={{ color: 'var(--gold-accent)' }}>Shape the Industry.</span>
+            </h2>
+            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1rem', lineHeight: 1.7 }}>
+              Join FARE's trainer network and deliver structured programs that create real impact across roles.
+            </p>
+          </div>
+          <div style={{ position: 'absolute', bottom: '32px', right: '48px', display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+            {[
+              { val: '100+', label: 'Topics' },
+              { val: '5+', label: 'Formats' },
+              { val: '3x', label: 'Reach' },
+            ].map((s, i) => (
+              <div key={i} style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '16px', padding: '14px 22px', textAlign: 'center', color: 'white' }}>
+                <div style={{ fontSize: '1.8rem', fontWeight: 700, fontFamily: 'Outfit, sans-serif', color: 'var(--gold-accent)' }}>{s.val}</div>
+                <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'rgba(255,255,255,0.7)' }}>{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </motion.section> */}
+
         {/* 2. Who Is It For */}
         <section className="category-section">
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '40px', textAlign: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '15px', textAlign: 'center' }}>
             <span className="modern-badge" style={{ marginBottom: '16px' }}>Target Audience</span>
-            <h2 className="category-title text-center" style={{ marginBottom: '16px', justifyContent: 'center' }}>
+            <h2 className="category-title text-center" style={{ marginBottom: '12px', justifyContent: 'center' }}>
               Who Is It<span className="modern-text-gradient" style={{ paddingRight: 0 }}>For?</span>
             </h2>
             <p className="text-text-muted mx-auto" style={{ maxWidth: '600px' }}>
@@ -209,56 +264,60 @@ const TrainerPage = () => {
         {/* 3. About FARE */}
         <section className="category-section">
           <div className="info-row-grid">
-            <div>
-              <h2 className="category-title">About FARE</h2>
-              <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: 'var(--gold-accent)', marginBottom: '24px' }}>
-                FARE - Finishing Academy for Real Estate
-              </h3>
-              <p className="clc-tagline" style={{ fontSize: '1.1rem', marginBottom: '32px' }}>
-                FARE aims to empower real estate professionals to improve productivity, close more effectively, and scale their careers across both salaried roles and freelance models.
-              </p>
-
-              <div style={{ marginBottom: '32px' }}>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '16px', color: 'var(--text-main)' }}>🎯 Our Focus</h4>
-                <ul className="clc-highlights" style={{ border: 'none', padding: 0 }}>
-                  {[
-                    "Aligning skills to real-world roles and sales processes",
-                    "Enabling professionals to continuously upskill and perform better",
-                    "Creating pathways for experts to share and scale their knowledge"
-                  ].map((text, i) => (
-                    <li key={i} className="clc-highlight-item" style={{ fontSize: '1.05rem', color: 'var(--text-main)', fontWeight: 500 }}>
-                      <CheckCircle size={18} style={{ marginTop: 0 }} />
-                      <span>{text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
               <div>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '16px', color: 'var(--text-main)' }}>🚀 Why This Matters for You</h4>
-                <ul className="clc-highlights" style={{ border: 'none', padding: 0 }}>
-                  {[
-                    "Turn your experience into structured training",
-                    "Deliver programs aligned to real industry needs",
-                    "Reach and impact a wider professional audience"
-                  ].map((text, i) => (
-                    <li key={i} className="clc-highlight-item" style={{ fontSize: '1.05rem', color: 'var(--text-main)', fontWeight: 500 }}>
-                      <CheckCircle size={18} style={{ marginTop: 0 }} />
-                      <span>{text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div style={{ marginTop: '40px', padding: '24px', background: 'var(--primary-deep)', color: 'white', borderRadius: '16px' }}>
-                <p style={{ fontSize: '1.2rem', fontWeight: 700 }}>
-                  From experience to expertise. <span style={{ color: 'var(--gold-accent)' }}>From expertise to impact.</span>
+                <span className="modern-badge" style={{ marginBottom: '4px' }}>About FARE</span>
+                <h2 className="category-title" style={{ marginBottom: '16px' }}>Finishing Academy for <span className="modern-text-gradient">Real Estate</span></h2>
+                <p className="clc-tagline" style={{ fontSize: '1.15rem', lineHeight: '1.7', color: 'var(--text-main)', opacity: 0.9 }}>
+                  FARE empowers real estate professionals to maximize productivity, master the art of closing, and scale their careers through industry-aligned, structured training.
                 </p>
               </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                <div style={{ background: 'rgba(13, 148, 136, 0.03)', border: '1px solid rgba(13, 148, 136, 0.1)', borderRadius: '20px', padding: '24px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                    <div style={{ padding: '8px', background: 'rgba(13, 148, 136, 0.1)', borderRadius: '10px', color: 'var(--primary-accent)' }}><Target size={20} /></div>
+                    <h4 style={{ fontSize: '1.1rem', fontWeight: 700, margin: 0, color: 'var(--text-main)' }}>Our Focus</h4>
+                  </div>
+                  <ul className="clc-highlights" style={{ border: 'none', padding: 0, gap: '12px' }}>
+                    {[
+                      "Role-specific skill alignment",
+                      "Continuous performance upskilling",
+                      "Knowledge scaling for experts"
+                    ].map((text, i) => (
+                      <li key={i} className="clc-highlight-item" style={{ fontSize: '0.95rem', alignItems: 'center' }}>
+                        <CheckCircle size={16} />
+                        <span>{text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div style={{ background: 'rgba(217, 119, 6, 0.03)', border: '1px solid rgba(217, 119, 6, 0.1)', borderRadius: '20px', padding: '24px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                    <div style={{ padding: '8px', background: 'rgba(217, 119, 6, 0.1)', borderRadius: '10px', color: 'var(--gold-accent)' }}><TrendingUp size={20} /></div>
+                    <h4 style={{ fontSize: '1.1rem', fontWeight: 700, margin: 0, color: 'var(--text-main)' }}>Your Growth</h4>
+                  </div>
+                  <ul className="clc-highlights" style={{ border: 'none', padding: 0, gap: '12px' }}>
+                    {[
+                      "Structured trainer conversion",
+                      "Industry-aligned delivery",
+                      "Massive professional outreach"
+                    ].map((text, i) => (
+                      <li key={i} className="clc-highlight-item" style={{ fontSize: '0.95rem', alignItems: 'center' }}>
+                        <CheckCircle size={16} />
+                        <span>{text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+
             </div>
 
             <div className="about-visual-box">
-              <img src="/training-session-new.png" alt="FARE Training Environment" />
+              <img src="/trainer-hero.png" alt="FARE Training Environment" />
               <div className="about-visual-overlay"></div>
               <div className="about-visual-float">
                 <div className="about-float-icon">
@@ -270,14 +329,32 @@ const TrainerPage = () => {
                 </div>
               </div>
             </div>
+
+          </div>
+          <div style={{
+            marginTop: '10px',
+            padding: ' 15px 0px',
+            background: 'linear-gradient(135deg, var(--primary-deep) 0%, #1e293b 100%)',
+            color: 'white',
+            borderRadius: '20px',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            position: 'relative',
+            overflow: 'hidden',
+            textAlign: 'center'
+          }}>
+            <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', background: 'var(--gold-accent)', opacity: 0.1, borderRadius: '50%', filter: 'blur(30px)' }} />
+            <p style={{ fontSize: '1.25rem', fontWeight: 700, margin: 0, lineHeight: '1.4', position: 'relative', zIndex: 1 }}>
+              From experience to expertise.
+              <span style={{ color: 'var(--gold-accent)' }}> From expertise to impact.</span>
+            </p>
           </div>
         </section>
 
         {/* 4. Areas Where You Can Make a Difference */}
-        <section className="category-section">
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '40px', textAlign: 'center' }}>
-            <span className="modern-badge" style={{ marginBottom: '16px' }}>Impact Areas</span>
-            <h2 className="category-title text-center" style={{ marginBottom: '16px', justifyContent: 'center' }}>
+        <section className="category-section" style={{ marginTop: "50px" }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '15px', textAlign: 'center' }}>
+            <span className="modern-badge" style={{ marginBottom: '4px' }}>Impact Areas</span>
+            <h2 className="category-title text-center" style={{ marginBottom: '12px', justifyContent: 'center' }}>
               Areas Where You Can <span className="modern-text-gradient" style={{ paddingRight: 0 }}>Make A Difference</span>
             </h2>
             <p className="text-text-muted mx-auto" style={{ maxWidth: '600px' }}>
@@ -285,12 +362,18 @@ const TrainerPage = () => {
             </p>
           </div>
 
-          <div className="course-all-grid" style={{ marginBottom: '40px' }}>
+          <div className="course-all-grid grid-5-cols" style={{ marginBottom: '40px' }}>
             {[
-              { title: "Lead Generation", desc: "Create demand and generate quality enquiries", icon: <Globe size={20} />, topics: ["Performance Marketing (Meta & Google Ads)", "WhatsApp Automation & Lead Funnels", "Property Portals & Inbound Systems"] },
-              { title: "Pre-Sales", desc: "Convert enquiries into qualified site visits", icon: <UserCheck size={20} />, topics: ["Lead Qualification & Nurturing", "CRM Workflows & Follow-ups", "Inside Sales Systems"] },
+              {
+                title: "Lead Generation", desc: "Generate Demand & Quality Leads", icon: <Globe size={20} />, topics: [
+                  "Performance Ads (Meta & Google)",
+                  "WhatsApp Funnels & Automation",
+                  "Property Portals & Inbound"
+                ]
+              },
+              { title: "Pre-Sales", desc: "Turn Enquiries into Site Visits", icon: <UserCheck size={20} />, topics: ["Lead Qualification & Nurturing", "CRM Workflows & Follow-ups", "Inside Sales Systems"] },
               { title: "Sales", desc: "Drive conversions and close deals", icon: <Briefcase size={20} />, topics: ["High-Rise Project Sales", "Luxury Property Advisory", "Project Pitching & Client Handling", "Negotiation & Closing"] },
-              { title: "Revenue", desc: "Secure collections and manage relationships", icon: <TrendingUp size={20} />, topics: ["Payment Follow-Up Systems", "Conflict Resolution", "Post-Sales Customer Handling"] },
+              { title: "Revenue", desc: "Payments & Relationship Management", icon: <TrendingUp size={20} />, topics: ["Payment Follow-Up Systems", "Conflict Resolution", "Post-Sales Customer Handling"] },
               { title: "Career & Freelancing", desc: "Enable independent growth and income", icon: <Activity size={20} />, topics: ["Freelancer & Channel Partner Models", "Personal Branding for Realtors", "Business Development for Agents"] }
             ].map((block, idx) => (
               <ExpandableImpactCard key={idx} block={block} idx={idx} />
@@ -298,7 +381,7 @@ const TrainerPage = () => {
           </div>
 
           {/* Capability Layers */}
-          <h3 className="text-center" style={{ fontSize: '1.8rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '30px' }}>Capability Layers</h3>
+          <h3 className="text-center" style={{ fontSize: '1.8rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '12px' }}>Capability Layers</h3>
           <div className="course-all-grid">
             {[
               { title: "Communication & Conversion Skills", icon: <MessageSquare size={20} />, topics: ["English for Real Estate", "Client Conversations & Presentation", "Objection Handling & Closing"] },
@@ -331,9 +414,9 @@ const TrainerPage = () => {
 
         {/* 5. Ways to Collaborate */}
         <section className="category-section">
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '40px', textAlign: 'center' }}>
-            <span className="modern-badge" style={{ marginBottom: '16px' }}>Delivery Formats</span>
-            <h2 className="category-title text-center" style={{ marginBottom: '16px', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '15px', textAlign: 'center' }}>
+            <span className="modern-badge" style={{ marginBottom: '4px' }}>Delivery Formats</span>
+            <h2 className="category-title text-center" style={{ marginBottom: '12px', justifyContent: 'center' }}>
               Ways to Deliver Your<span className="modern-text-gradient" style={{ padding: "0px", margin: "0px", paddingRight: 0 }}>Expertise & Collaborate</span>
             </h2>
             <p className="text-text-muted mx-auto" style={{ maxWidth: '600px' }}>
@@ -484,7 +567,7 @@ const TrainerPage = () => {
 
 
         {/* 9. FINAL CTA SECTION */}
-        <section className="category-section" style={{ marginBottom: '20px' }}>
+        <section className="category-section" >
           <motion.div
             className="course-list-card solid-deep"
             style={{ padding: '60px 40px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}
@@ -500,7 +583,7 @@ const TrainerPage = () => {
               <span className="modern-badge" style={{ marginBottom: '20px', background: 'rgba(255,255,255,0.08)', color: 'white', borderColor: 'rgba(255,255,255,0.15)' }}>
                 Take the First Step
               </span>
-              <h2 className="clc-title" style={{ fontSize: '2.5rem', marginBottom: '16px', color: 'white' }}>
+              <h2 className="clc-title" style={{ fontSize: '2rem', marginBottom: '16px', color: 'white' }}>
                 Connect With Us
               </h2>
               <p className="clc-tagline" style={{ fontSize: '1.1rem', marginBottom: '36px', color: 'rgba(255,255,255,0.7)', maxWidth: '600px', margin: '0 auto 36px auto' }}>
@@ -516,7 +599,7 @@ const TrainerPage = () => {
         </section>
 
         <ApplyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      </div>
+      </div >
     </div >
   );
 };

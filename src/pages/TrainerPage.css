@@ -10,17 +10,16 @@
 /* Centered High-End Hero aligned with CoursesPage */
 .courses-hero {
   text-align: center;
-  margin-bottom: 20px;
-  margin-top: 30px;
+  padding: 0;
 }
 
 .category-section {
-  margin-bottom: 50px;
-  margin-top: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 .category-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 600;
   margin-bottom: 15px;
   display: flex;
@@ -33,6 +32,7 @@
 
 .category-title.text-center {
   justify-content: center;
+  margin-bottom: 5px;
 }
 
 .category-title:before {
@@ -208,23 +208,33 @@
 /* Grids */
 .course-all-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
+  align-items: start;
 }
 
 @media (min-width: 1200px) {
   .course-all-grid.grid-5-cols {
     grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
   }
   .course-all-grid.grid-5-cols .course-list-card {
-    padding: 20px;
-    gap: 8px;
+    padding: 16px 14px;
+    gap: 6px;
   }
   .course-all-grid.grid-5-cols .clc-title {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
+    font-weight: 600;
   }
   .course-all-grid.grid-5-cols .clc-tagline {
-    font-size: 0.82rem;
+    font-size: 0.75rem;
+  }
+  .course-all-grid.grid-5-cols .clc-highlight-item {
+    font-size: 0.8rem;
+  }
+  .course-all-grid.grid-5-cols .clc-icon-wrap {
+    width: 36px;
+    height: 36px;
   }
 }
 
@@ -414,7 +424,7 @@
 
 /* Modern Glowing Blocks (from Courses Syllabus CTA) */
 .syllabus-cta-section {
-  padding: 20px 0 60px 0;
+  padding: 8px 0;
   text-align: center;
 }
 
