@@ -223,7 +223,7 @@ const TrainerPage = () => {
         </motion.section> */}
 
         {/* 2. Who Is It For */}
-        <section className="category-section">
+        <section className="category-section" style={{ marginTop: "50px" }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '15px', textAlign: 'center' }}>
             <span className="modern-badge" style={{ marginBottom: '16px' }}>Target Audience</span>
             <h2 className="category-title text-center" style={{ marginBottom: '12px', justifyContent: 'center' }}>
@@ -262,7 +262,7 @@ const TrainerPage = () => {
         </section>
 
         {/* 3. About FARE */}
-        <section className="category-section">
+        <section className="category-section" style={{ marginTop: "50px" }}>
           <div className="info-row-grid">
             <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
               <div>
@@ -413,7 +413,7 @@ const TrainerPage = () => {
         </section>
 
         {/* 5. Ways to Collaborate */}
-        <section className="category-section" style={{marginTop: "50px"}}>
+        <section className="category-section" style={{ marginTop: "50px" }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '15px', textAlign: 'center' }}>
             <span className="modern-badge" style={{ marginBottom: '4px' }}>Delivery Formats</span>
             <h2 className="category-title text-center" style={{ marginBottom: '12px', justifyContent: 'center' }}>

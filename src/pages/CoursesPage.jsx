@@ -95,26 +95,30 @@ const CoursesPage = () => {
                                                 onClick={() => toggleExpand(mod.id)}
                                                 className="clc-more-btn"
                                                 style={{
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    gap: '4px',
                                                     background: 'none',
                                                     border: 'none',
-                                                    color: '#c29d59', // Using luxury theme gold
-                                                    fontSize: '0.85rem',
+                                                    color: 'var(--primary-accent)',
+                                                    fontSize: '0.8rem',
+                                                    fontWeight: 700,
                                                     cursor: 'pointer',
-                                                    padding: '6px 0 0 0',
-                                                    marginTop: '4px',
-                                                    fontWeight: '500',
-                                                    transition: 'opacity 0.2s ease'
+                                                    textAlign: 'left',
+                                                    padding: '12px 0 0 0',
+                                                    marginTop: 'auto',
+                                                    display: 'inline-block',
+                                                    opacity: 0.8,
+                                                    alignItems: 'center',
+                                                    gap: '4px',
+                                                    justifyContent: "center"
+
+
                                                 }}
                                                 onMouseEnter={(e) => e.target.style.opacity = '0.8'}
                                                 onMouseLeave={(e) => e.target.style.opacity = '1'}
                                             >
                                                 {isExpanded ? (
-                                                    <>Show Less <ChevronUp size={14} /></>
+                                                    <>Show Less </>
                                                 ) : (
-                                                    <>+{mod.highlights.length - 2} More Points <ChevronDown size={14} /></>
+                                                    <>+{mod.highlights.length - 2} More Points </>
                                                 )}
                                             </button>
                                         )}

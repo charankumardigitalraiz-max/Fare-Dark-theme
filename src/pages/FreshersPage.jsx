@@ -328,7 +328,7 @@ const FreshersPage = () => {
         </section>
 
         {/* Program Overview & TOE using course-list-card layout */}
-        <section className="category-section">
+        <section className="category-section" style={{ marginTop: "50px" }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '12px', textAlign: 'center' }}>
             <span className="modern-badge" style={{ marginBottom: '16px' }}>Course Overview</span>
             <h2 className="category-title text-center" style={{ marginBottom: '8px' }}>
@@ -361,7 +361,7 @@ const FreshersPage = () => {
             ))}
           </div>
 
-          <h3 className="category-title" style={{ fontSize: '1.8rem', marginBottom: '12px' }}>How You Will Learn (TOE)</h3>
+          <h3 className="category-title" style={{ fontSize: '1.8rem', marginBottom: '12px', marginTop: "10px" }}>How You Will Learn (TOE)</h3>
           <div className="course-all-grid">
             {[
               { l: "T", term: "Talk (LAN)", title: "Communication & confidence" },
@@ -592,7 +592,7 @@ const FreshersPage = () => {
                 style={{ padding: '32px', textAlign: 'center', alignItems: 'center' }}
               >
                 <div className="clc-icon-wrap" style={{ marginBottom: '20px', width: '56px', height: '56px', background: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.15)', color: 'var(--gold-accent)' }}>{item.icon}</div>
-                <h3 className="clc-title" style={{ color: 'white', fontSize: '1.4rem', marginBottom: '12px' }}>{item.title}</h3>
+                <h3 className="clc-title" style={{ color: 'white', fontSize: '1.4rem', marginBottom: '5px' }}>{item.title}</h3>
                 <p className="clc-tagline" style={{ color: 'rgba(255,255,255,0.7)' }}>{item.desc}</p>
               </motion.div>
             ))}

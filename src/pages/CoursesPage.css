@@ -202,7 +202,7 @@
 .syllabus-cta-modern .cta-title {
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 600;
-  color: #ffffff;
+  color: #ffffff !important;
   margin-bottom: 16px;
   position: relative;
   z-index: 1;
@@ -217,7 +217,7 @@
 
 .syllabus-cta-modern .cta-description {
   font-size: 1.15rem;
-  color: rgba(203, 213, 225, 0.85);
+  color: rgba(203, 213, 225, 0.85) !important;
   max-width: 640px;
   margin: 0 auto 32px;
   line-height: 1.7;
