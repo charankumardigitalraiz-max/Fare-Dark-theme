@@ -210,12 +210,32 @@
   letter-spacing: -1px;
 }
 
+.syllabus-cta-modern .cta-titles {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 600;
+  color: #ffffff !important;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+  font-family: "Outfit", sans-serif;
+  letter-spacing: -1px;
+}
+
 .syllabus-cta-modern .gold-text {
   color: var(--gold-accent);
   text-shadow: 0 0 20px var(--gold-glow);
 }
 
 .syllabus-cta-modern .cta-description {
+  font-size: 1.15rem;
+  color: rgba(203, 213, 225, 0.85) !important;
+  max-width: 640px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+.syllabus-cta-modern .cta-descriptions {
   font-size: 1.15rem;
   color: rgba(203, 213, 225, 0.85) !important;
   max-width: 640px;

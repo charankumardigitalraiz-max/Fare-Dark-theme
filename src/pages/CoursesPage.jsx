@@ -137,8 +137,8 @@ const CoursesPage = () => {
                         className="syllabus-cta-modern"
                     >
                         <div className="cta-glow"></div>
-                        <h2 className="cta-title">Ready to <span className="gold-text">Start Your Journey?</span></h2>
-                        <p className="cta-description">
+                        <h2 className="cta-titles">Ready to <span className="gold-text">Start Your Journey?</span></h2>
+                        <p className="cta-descriptions">
                             Our complete curriculum covers all 22 modules with hands-on training, site visits,
                             and 100% Placement Support to launch your real estate career with confidence.
                         </p>
