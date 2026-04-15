@@ -97,7 +97,7 @@ const CompaniesPage = () => {
                             className="cmp-cta-group"
                         >
                             <button onClick={() => setIsModalOpen(true)} className="btn-gold">Request Talent</button>
-                            <Link to="/contact" className="" style={{ color: 'white' }}>Book a Demo / Consultation</Link>
+                            <Link to="/contact" className="cmp-btn-outline">Book a Demo / Consultation</Link>
                         </motion.div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ const CompaniesPage = () => {
                         <span className="cmp-badge">Trust & Positioning</span>
                         <h2 className="cmp-category-title cmp-text-center">Built for the Real Estate Industry. <br /><span className="cmp-text-gradient" style={{ paddingRight: 0 }}>Backed by Practical Training.</span></h2>
                         <p className="cmp-section-desc cmp-max-w-3xl" style={{ marginTop: 0 }}>
-                            FARE bridges the gap between hiring needs of developers & channel partners and the lack of industry-ready talent. We don’t just train candidates—we prepare them for on-ground sales execution.
+                            FARE bridges the gap between <strong>hiring needs of developers & channel partners</strong> and the <strong> lack of industry-ready talent.</strong> We don’t just train candidates—we prepare them for on-ground sales execution.
                         </p>
                     </div>
 
@@ -141,8 +141,8 @@ const CompaniesPage = () => {
             <section className="cmp-category-section cmp-solid-deep cmp-problem-section">
                 <div className="container">
                     <div className="cmp-section-head cmp-section-head-lg">
-                        <span className="cmp-badge" style={{ borderColor: 'rgba(239, 68, 68, 0.3)', color: '#ef4444', backgroundColor: 'rgba(239, 68, 68, 0.08)' }}>The Reality</span>
-                        <h2 className="cmp-category-title cmp-text-center cmp-text-white">Hiring in Real Estate is <span style={{ color: '#ef4444', marginLeft: '8px' }}>Broken</span></h2>
+                        <span className="cmp-badge" style={{ borderColor: 'rgba(239, 68, 68, 0.3)', color: '#ef4444', backgroundColor: 'rgba(239, 68, 68, 0.08)' }}>The Problem</span>
+                        <h2 className="cmp-category-title cmp-text-center cmp-text-white">Hiring in Real Estate is<span style={{ color: '#ef4444' }}>Broken</span></h2>
                     </div>
                     <div className="cmp-info-row">
                         <div className="cmp-problem-content">
@@ -184,7 +184,8 @@ const CompaniesPage = () => {
                         <span className="cmp-badge">The Solution</span>
                         <h2 className="cmp-category-title cmp-text-center">We Deliver <span className="cmp-text-gradient" style={{ paddingRight: 0 }}>Sales-Ready Talent</span></h2>
                         <p className="cmp-section-desc cmp-max-w-3xl" style={{ marginTop: 0 }}>
-                            Our candidates are trained across the complete real estate sales funnel, enabling them to contribute from day one. All candidates are prepared using the FARE TOE Framework, ensuring practical readiness across every stage of sales.
+                            <span style={{ display: 'block' }}>Our candidates are trained across the <strong>complete real estate sales funnel</strong>, enabling them to contribute from day one.</span>
+                            <span style={{ display: 'block' }}>All candidates are prepared using the <strong>FARE TOE Framework</strong>, ensuring practical readiness across every stage of sales.</span>
                         </p>
                     </div>
 
@@ -216,7 +217,7 @@ const CompaniesPage = () => {
             <section className="cmp-category-section cmp-toe-framework-section">
                 <div className="container">
                     <div className="cmp-section-head">
-                        <span className="cmp-badge">The Core Framework</span>
+                        <span className="cmp-badge">THE FARE TOE FRAMEWORK</span>
                         <h2 className="cmp-category-title cmp-text-center">The FARE TOE Framework: <br /><span className="cmp-text-gradient" style={{ paddingRight: 0 }}>How Sales Actually Happens</span></h2>
                         <p className="cmp-section-desc cmp-max-w-2xl" style={{ marginTop: 0 }}>
                             A practical model that ensures every candidate is trained in the core behaviors that drive conversions.
@@ -306,7 +307,7 @@ const CompaniesPage = () => {
             <section className="cmp-category-section cmp-solid-deep cmp-training-section">
                 <div className="container">
                     <div className="cmp-section-head">
-                        <span className="cmp-badge">Curriculum</span>
+                        <span className="cmp-badge">TRAINING COVERAGE</span>
                         <h2 className="cmp-category-title cmp-text-center cmp-text-white">What Your <span className="cmp-gold-text" style={{ paddingRight: 0 }}>Hires Already Know</span></h2>
                     </div>
 
@@ -370,7 +371,7 @@ const CompaniesPage = () => {
             <section className="cmp-category-section">
                 <div className="container">
                     <div className="cmp-section-head">
-                        <span className="cmp-badge">Use Cases</span>
+                        <span className="cmp-badge">HIRING USE CASES</span>
                         <h2 className="cmp-category-title cmp-text-center">Who This <span className="cmp-text-gradient" style={{ paddingRight: 0 }}>Is For</span></h2>
                     </div>
 
@@ -418,7 +419,7 @@ const CompaniesPage = () => {
             <section className="cmp-category-section cmp-bg-gray-50">
                 <div className="container">
                     <div className="cmp-section-head">
-                        <span className="cmp-badge">Our Process</span>
+                        <span className="cmp-badge">HOW IT WORKS</span>
                         <h2 className="cmp-category-title cmp-text-center">Simple. Fast. <span className="cmp-text-gradient" style={{ paddingRight: 0 }}>Effective.</span></h2>
                     </div>
                     <div className="cmp-how-grid">
@@ -450,7 +451,7 @@ const CompaniesPage = () => {
             <section className="cmp-category-section cmp-competition-layout">
                 <div className="container">
                     <div className="cmp-section-head">
-                        <span className="cmp-badge">The Comparison</span>
+                        <span className="cmp-badge">WHY FARE</span>
                         <h2 className="cmp-category-title cmp-text-center">Why Companies <span className="cmp-text-gradient" style={{ paddingRight: 0 }}>Choose FARE</span></h2>
                     </div>
 
@@ -536,7 +537,7 @@ const CompaniesPage = () => {
                             className="cmp-badge"
                             style={{ background: 'rgba(194, 157, 89, 0.1)', color: '#c29d59', borderColor: 'rgba(194, 157, 89, 0.2)' }}
                         >
-                            Experts Speak
+                            INDUSTRY EXPERT PERSPECTIVE
                         </motion.span>
                         <h2 className="cmp-category-title-white cmp-text-center">What Industry Experts Say <br /><span className="cmp-text-gradient" style={{ paddingRight: 0 }}>About This Approach</span></h2>
                         <p className="cmp-section-desc cmp-mt-4" style={{ marginTop: 0 }}>Aligned with real expectations from developers and channel partners.</p>

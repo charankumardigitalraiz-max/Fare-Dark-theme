@@ -103,7 +103,7 @@
   color: white;
 }
 
-.header:not(.scrolled) .logo-img {
+.header:not(.scrolled) .logo-img-companies {
   filter: brightness(0) invert(1);
 }
 

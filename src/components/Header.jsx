@@ -48,7 +48,7 @@ const Header = () => {
                         <img
                             src="/Fare-logo.png"
                             alt="Fare Reality Logo"
-                            className="logo-img"
+                            className={`logo-img ${companiesScreen ? "logo-img-companies" : ""}`}
                             style={{
                                 // filter: isScrolled ? 'none' : 'brightness(0) invert(1)',
                                 transition: 'filter 0.3s ease'
