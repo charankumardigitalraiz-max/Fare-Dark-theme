@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, Users, CheckCircle } from 'lucide-react';
+import { Clock, Users, CheckCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { modulesList } from '../data/coursesData.jsx';
 import './CoursesPage.css';
 
 const CoursesPage = () => {
+    const [expandedModules, setExpandedModules] = useState({});
+
+    const toggleExpand = (id) => {
+        setExpandedModules(prev => ({
+            ...prev,
+            [id]: !prev[id]
+        }));
+    };
+
     return (
         <div className="courses-page section-padding">
             <div className="container">
@@ -37,49 +46,83 @@ const CoursesPage = () => {
                 </header>
 
                 <div className="course-all-grid">
-                    {modulesList.map((mod, index) => (
-                        <motion.div
-                            key={mod.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.06, duration: 0.5 }}
-                            style={{ display: 'flex' }}
-                        >
-                            <div className="course-list-card" style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, height: '100%' }}>
-                                <div className="clc-header">
-                                    <div className="clc-icon-wrap">{mod.icon}</div>
-                                    <div className="clc-meta">
-                                        <span className="clc-module-tag">Module {mod.id.toString().padStart(2, '0')}</span>
-                                        <span className="clc-level-tag">{mod.level}</span>
+                    {modulesList.map((mod, index) => {
+                        const isExpanded = expandedModules[mod.id];
+                        const showHighlights = isExpanded ? mod.highlights : mod.highlights.slice(0, 1);
+                        const hasMore = mod.highlights.length > 1;
+
+                        return (
+                            <motion.div
+                                key={mod.id}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.06, duration: 0.5 }}
+                                style={{ display: 'flex' }}
+                            >
+                                <div className="course-list-card" style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, height: '100%' }}>
+                                    <div className="clc-header">
+                                        <div className="clc-icon-wrap">{mod.icon}</div>
+                                        <div className="clc-meta">
+                                            <span className="clc-module-tag">Module {mod.id.toString().padStart(2, '0')}</span>
+                                            <span className="clc-level-tag">{mod.level}</span>
+                                        </div>
                                     </div>
+
+                                    <h3 className="clc-title">{mod.title}</h3>
+                                    <p className="clc-tagline">{mod.tagline}</p>
+
+                                    <div className="clc-info-row">
+                                        <div className="clc-info-item">
+                                            <Clock size={14} />
+                                            <span>{mod.duration}</span>
+                                        </div>
+                                        <div className="clc-info-item">
+                                            <Users size={14} />
+                                            <span>{mod.eligibility}</span>
+                                        </div>
+                                    </div>
+
+                                    <ul className="clc-highlights">
+                                        {showHighlights.map((h, i) => (
+                                            <li key={i} className="clc-highlight-item">
+                                                <CheckCircle size={13} />
+                                                <span>{h}</span>
+                                            </li>
+                                        ))}
+                                        {hasMore && (
+                                            <button
+                                                onClick={() => toggleExpand(mod.id)}
+                                                className="clc-more-btn"
+                                                style={{
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: '4px',
+                                                    background: 'none',
+                                                    border: 'none',
+                                                    color: '#c29d59', // Using luxury theme gold
+                                                    fontSize: '0.85rem',
+                                                    cursor: 'pointer',
+                                                    padding: '6px 0 0 0',
+                                                    marginTop: '4px',
+                                                    fontWeight: '500',
+                                                    transition: 'opacity 0.2s ease'
+                                                }}
+                                                onMouseEnter={(e) => e.target.style.opacity = '0.8'}
+                                                onMouseLeave={(e) => e.target.style.opacity = '1'}
+                                            >
+                                                {isExpanded ? (
+                                                    <>Show Less <ChevronUp size={14} /></>
+                                                ) : (
+                                                    <>+{mod.highlights.length - 2} More Points <ChevronDown size={14} /></>
+                                                )}
+                                            </button>
+                                        )}
+                                    </ul>
                                 </div>
-
-                                <h3 className="clc-title">{mod.title}</h3>
-                                <p className="clc-tagline">{mod.tagline}</p>
-
-                                <div className="clc-info-row">
-                                    <div className="clc-info-item">
-                                        <Clock size={14} />
-                                        <span>{mod.duration}</span>
-                                    </div>
-                                    <div className="clc-info-item">
-                                        <Users size={14} />
-                                        <span>{mod.eligibility}</span>
-                                    </div>
-                                </div>
-
-                                <ul className="clc-highlights">
-                                    {mod.highlights.slice(0, 3).map((h, i) => (
-                                        <li key={i} className="clc-highlight-item">
-                                            <CheckCircle size={13} />
-                                            <span>{h}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        );
+                    })}
                 </div>
 
                 <section className="syllabus-cta-section">

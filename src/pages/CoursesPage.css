@@ -38,11 +38,11 @@
   gap: 20px;
   color: var(--text-main);
   letter-spacing: -1px;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 .category-title:before {
-  content: '';
+  content: "";
   width: 50px;
   height: 4px;
   background: var(--gold-gradient);
@@ -99,7 +99,7 @@
   color: var(--text-main);
   margin-bottom: 24px;
   line-height: 1.25;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 .course-info-list {
@@ -146,11 +146,11 @@
   .courses-page {
     padding-top: 100px;
   }
-  
+
   .category-title {
     font-size: 2rem;
   }
-  
+
   .course-detail-grid {
     grid-template-columns: 1fr;
   }
@@ -162,16 +162,26 @@
   text-align: center;
 }
 
-.syllabus-cta-modern {
+.courses-page .syllabus-cta-modern {
   position: relative;
-  background: #ffffff;
-  border: 1px solid rgba(180, 83, 9, 0.1);
-  padding: 40px 30px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f172a 100%);
+  border: 1px solid rgba(194, 157, 89, 0.25);
+  padding: 56px 40px;
   border-radius: 32px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(194, 157, 89, 0.1);
   max-width: 780px;
   margin: 0 auto;
+  overflow: hidden;
 }
+
+/* .syllabus-cta-modern .cta-title {
+  color: white;
+} */
+/* .syllabus-cta-modern .cta-description {
+  color: white;
+} */
 
 .cta-glow {
   position: absolute;
@@ -180,30 +190,34 @@
   transform: translate(-50%, -50%);
   width: 150%;
   height: 150%;
-  background: radial-gradient(circle at center, rgba(255, 184, 0, 0.05) 0%, transparent 70%);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 184, 0, 0.05) 0%,
+    transparent 70%
+  );
   pointer-events: none;
   z-index: 0;
 }
 
-.cta-title {
+.syllabus-cta-modern .cta-title {
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 600;
-  color: var(--text-main);
+  color: #ffffff;
   margin-bottom: 16px;
   position: relative;
   z-index: 1;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   letter-spacing: -1px;
 }
 
-.gold-text {
+.syllabus-cta-modern .gold-text {
   color: var(--gold-accent);
   text-shadow: 0 0 20px var(--gold-glow);
 }
 
-.cta-description {
+.syllabus-cta-modern .cta-description {
   font-size: 1.15rem;
-  color: var(--text-muted);
+  color: rgba(203, 213, 225, 0.85);
   max-width: 640px;
   margin: 0 auto 32px;
   line-height: 1.7;
@@ -229,7 +243,7 @@
   font-weight: 600;
   cursor: pointer;
   font-size: 0.9rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   transition: all 0.3s ease;
 }
 
@@ -239,12 +253,42 @@
   background: rgba(255, 184, 0, 0.05);
 }
 
-/* All Courses Grid */
-.course-all-grid {
+/* All Courses Grid — scoped to avoid conflicts with TrainerPage/FreshersPage */
+.courses-page .course-all-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-bottom: 80px;
+  align-items: stretch;
+}
+
+/* Force motion.div wrappers to stretch full row height */
+.courses-page .course-all-grid > * {
+  display: flex !important;
+  align-self: stretch;
+}
+
+/* Force the inner card to fill full height */
+.courses-page .course-all-grid .course-list-card {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Highlights must start from top — override global margin-top: auto */
+.courses-page .course-all-grid .clc-highlights {
+  margin-top: 0;
+}
+
+@media (max-width: 1280px) {
+  .courses-page .course-all-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .courses-page .course-all-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .course-list-card {
@@ -320,7 +364,7 @@
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--text-main);
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   letter-spacing: -0.5px;
   line-height: 1.3;
 }
@@ -393,7 +437,7 @@
 }
 
 @media (max-width: 768px) {
-  .course-all-grid {
+  .courses-page .course-all-grid {
     grid-template-columns: 1fr;
   }
 }

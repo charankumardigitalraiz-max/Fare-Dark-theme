@@ -413,7 +413,7 @@ const TrainerPage = () => {
         </section>
 
         {/* 5. Ways to Collaborate */}
-        <section className="category-section">
+        <section className="category-section" style={{marginTop: "50px"}}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '15px', textAlign: 'center' }}>
             <span className="modern-badge" style={{ marginBottom: '4px' }}>Delivery Formats</span>
             <h2 className="category-title text-center" style={{ marginBottom: '12px', justifyContent: 'center' }}>
