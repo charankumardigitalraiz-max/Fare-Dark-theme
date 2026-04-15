@@ -9,6 +9,7 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [companiesScreen, setCompaniesScreen] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
@@ -18,6 +19,15 @@ const Header = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    useEffect(() => {
+        if (location.pathname === '/companies') {
+            setCompaniesScreen(true);
+        } else {
+            setCompaniesScreen(false);
+        }
+    }, [location.pathname]);
+
 
     const navLinks = [
         { name: 'Home', href: '/' },
@@ -58,7 +68,7 @@ const Header = () => {
                         >
                             <Link
                                 to={link.href}
-                                className={`nav-link ${location.pathname === link.href ? 'active' : ''}`}
+                                className={`nav-link ${companiesScreen ? "nav-link-companies" : ""} ${location.pathname === link.href ? 'active' : ''}`}
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 {link.name}

@@ -39,7 +39,7 @@
 }
 
 .logo-text {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -69,7 +69,7 @@
 }
 
 .nav-link:after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 4px;
   left: 0;
@@ -84,7 +84,7 @@
 }
 
 .header:not(.scrolled) .nav-link:hover {
-  color: var(--gold-accent); 
+  color: var(--gold-accent);
 }
 
 .nav-link:hover:after {
@@ -97,6 +97,25 @@
 
 .nav-link.active:after {
   width: 100%;
+}
+
+.header:not(.scrolled) .nav-link.nav-link-companies {
+  color: white;
+}
+
+.header:not(.scrolled) .logo-img {
+  filter: brightness(0) invert(1);
+}
+
+.nav-links .nav-link-companies {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 8px 0;
 }
 
 .mobile-toggle {
@@ -131,7 +150,7 @@
   .nav-links {
     display: none;
   }
-  
+
   .mobile-toggle {
     display: block;
   }

@@ -97,7 +97,7 @@ const CompaniesPage = () => {
                             className="cmp-cta-group"
                         >
                             <button onClick={() => setIsModalOpen(true)} className="btn-gold">Request Talent</button>
-                            <Link to="/contact" className="btn-ghost" style={{ color: 'white' }}>Book a Demo / Consultation</Link>
+                            <Link to="/contact" className="" style={{ color: 'white' }}>Book a Demo / Consultation</Link>
                         </motion.div>
                     </div>
                 </div>
@@ -351,7 +351,7 @@ const CompaniesPage = () => {
                                 className="cmp-course-card cmp-glass-dark"
                             >
                                 <div className="cmp-icon-wrap" style={{ background: 'rgba(194,157,89,0.1)', color: '#c29d59' }}>{item.icon}</div>
-                                <h3 className="cmp-card-title cmp-text-white">{item.title}</h3>
+                                <h3 className="cmp-card-title">{item.title}</h3>
                                 <ul className="cmp-highlights">
                                     {item.points.map((p, i) => (
                                         <li key={i} className="cmp-highlight-item">
@@ -593,7 +593,7 @@ const CompaniesPage = () => {
                 </div>
             </section>
 
-            {/* 11. FINAL CTA */ }
+            {/* 11. FINAL CTA */}
             <section className="cmp-category-section cmp-final-cta-section">
                 <div className="container">
                     <motion.div
@@ -608,9 +608,9 @@ const CompaniesPage = () => {
                                 <p className="cmp-text-white-soft cmp-mb-8" style={{ fontSize: '1.125rem', color: 'rgba(255,255,255,0.8)', marginBottom: '2rem' }}>
                                     Access trained professionals ready to Talk, Organize, and Engage from Day 1.
                                 </p>
-                                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                                    <button onClick={() => setIsModalOpen(true)} className="btn-gold">Request Talent</button>
-                                    <Link to="/contact" className="btn-ghost cmp-text-white">Schedule a Call</Link>
+                                <div className="cmp-cta-group" style={{ justifyContent: 'flex-start', margin: 0 }}>
+                                    <button onClick={() => setIsModalOpen(true)} className="cmp-btn-primary">Request Talent</button>
+                                    <Link to="/contact" className="cmp-btn-outline">Schedule a Call</Link>
                                 </div>
                             </div>
                             <div className="cmp-cta-form-box">
