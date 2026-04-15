@@ -525,41 +525,54 @@ const CompaniesPage = () => {
                 </div>
             </section>
 
-            {/* 10. INDUSTRY EXPERT PERSPECTIVE */}
-            <section className="cmp-category-section cmp-bg-gray-50 cmp-overflow-hidden">
+            {/* 10. INDUSTRY EXPERT PERSPECTIVE - REDESIGNED */}
+            <section className="cmp-expert-luxury-section cmp-overflow-hidden">
                 <div className="container">
                     <div className="cmp-section-head">
-                        <span className="cmp-badge">Experts Speak</span>
-                        <h2 className="cmp-category-title cmp-text-center">What Industry Experts Say <span className="cmp-text-gradient" style={{ paddingRight: 0 }}>About This Approach</span></h2>
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="cmp-badge"
+                            style={{ background: 'rgba(194, 157, 89, 0.1)', color: '#c29d59', borderColor: 'rgba(194, 157, 89, 0.2)' }}
+                        >
+                            Experts Speak
+                        </motion.span>
+                        <h2 className="cmp-category-title-white cmp-text-center">What Industry Experts Say <br /><span className="cmp-text-gradient" style={{ paddingRight: 0 }}>About This Approach</span></h2>
                         <p className="cmp-section-desc cmp-mt-4" style={{ marginTop: 0 }}>Aligned with real expectations from developers and channel partners.</p>
                     </div>
 
-                    <div className="cmp-expert-grid">
+                    <div className="cmp-perspective-grid">
                         {[
                             {
                                 title: "Sales Readiness Gap",
                                 quote: "Fresh hires struggle on-site. Companies need professionals who can handle real customers from day one.",
-                                alignment: "TOE ensures real-world conversation and engagement readiness"
+                                alignment: "TOE ensures real-world conversation and engagement readiness",
+                                icon: <Target size={24} />
                             },
                             {
                                 title: "Lead Conversion Gap",
                                 quote: "Conversion depends on follow-ups and discipline—not just leads.",
-                                alignment: "Strong focus on Organize (CRM + follow-ups)"
+                                alignment: "Strong focus on Organize (CRM + follow-ups)",
+                                icon: <TrendingUp size={24} />
                             },
                             {
                                 title: "Site Visit Impact",
                                 quote: "Site visits decide conversions.",
-                                alignment: "Engage stage is deeply trained"
+                                alignment: "Engage stage is deeply trained",
+                                icon: <Map size={24} />
                             },
                             {
                                 title: "Closing Skill Gap",
                                 quote: "Negotiation is rarely structured.",
-                                alignment: "Talk + Engage build closing capability"
+                                alignment: "Talk + Engage build closing capability",
+                                icon: <Zap size={24} />
                             },
                             {
                                 title: "Productivity Expectation",
                                 quote: "Ramp-up time needs to reduce.",
-                                alignment: "TOE prepares candidates for faster contribution"
+                                alignment: "TOE prepares candidates for faster contribution",
+                                icon: <ShieldCheck size={24} />
                             }
                         ].map((item, idx) => (
                             <motion.div
@@ -568,16 +581,19 @@ const CompaniesPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
-                                className="cmp-expert-card"
+                                className="cmp-perspective-card"
                             >
-                                <div className="cmp-expert-content">
-                                    <div className="cmp-expert-head">
-                                        <PieChart className="cmp-gold-text" size={24} />
-                                        <h3>{item.title}</h3>
+                                <div className="cmp-perspective-quote-symbol">“</div>
+                                <div className="cmp-perspective-header">
+                                    <div className="cmp-perspective-icon-box">
+                                        {item.icon}
                                     </div>
-                                    <p className="cmp-expert-quote">“{item.quote}”</p>
-                                    <div className="cmp-fare-alignment">
-                                        <div className="cmp-alignment-label">FARE Alignment</div>
+                                    <h3>{item.title}</h3>
+                                </div>
+                                <p className="cmp-perspective-text">“{item.quote}”</p>
+                                <div className="cmp-perspective-footer">
+                                    <div className="cmp-perspective-alignment">
+                                        <span className="cmp-alignment-tag">The FARE Solution</span>
                                         <p>{item.alignment}</p>
                                     </div>
                                 </div>
@@ -586,7 +602,7 @@ const CompaniesPage = () => {
                     </div>
 
                     <div className="cmp-text-center cmp-mt-12">
-                        <p className="cmp-luxury-title cmp-title-md">
+                        <p className="cmp-luxury-title cmp-title-md" style={{ color: 'rgba(255,255,255,0.9)' }}>
                             FARE is built around how sales actually happens in the industry—<span className="cmp-text-gradient">not just how it is taught.</span>
                         </p>
                     </div>
